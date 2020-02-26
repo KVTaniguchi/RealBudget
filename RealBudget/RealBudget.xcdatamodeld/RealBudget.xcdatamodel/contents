@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16114.2" systemVersion="19E224g" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Expense" representedClassName="Expense" syncable="YES" codeGenerationType="class">
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="value" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="financialState" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FinancialState" inverseName="expenses" inverseEntity="FinancialState"/>
+        <relationship name="frequency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Frequency" inverseName="expense" inverseEntity="Frequency"/>
+    </entity>
+    <entity name="FinancialState" representedClassName="FinancialState" syncable="YES" codeGenerationType="class">
+        <attribute name="balance" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="financialState" inverseEntity="Expense"/>
+        <relationship name="incomes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Income" inverseName="financialState" inverseEntity="Income"/>
+    </entity>
+    <entity name="Frequency" representedClassName="Frequency" syncable="YES" codeGenerationType="class">
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="expense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expense" inverseName="frequency" inverseEntity="Expense"/>
+        <relationship name="income" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Income" inverseName="frequency" inverseEntity="Income"/>
+    </entity>
+    <entity name="Income" representedClassName="Income" syncable="YES" codeGenerationType="class">
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="value" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="financialState" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FinancialState" inverseName="incomes" inverseEntity="FinancialState"/>
+        <relationship name="frequency" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Frequency" inverseName="income" inverseEntity="Frequency"/>
+    </entity>
+    <elements>
+        <element name="FinancialState" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Income" positionX="-54" positionY="-9" width="128" height="133"/>
+        <element name="Expense" positionX="-36" positionY="9" width="128" height="133"/>
+        <element name="Frequency" positionX="-18" positionY="36" width="128" height="88"/>
+    </elements>
+</model>
