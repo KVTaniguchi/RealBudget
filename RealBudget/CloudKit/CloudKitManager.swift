@@ -128,7 +128,7 @@ extension CloudKitManager {
         ckRecord[FinancialEvent.name] = event.name
         ckRecord[FinancialEvent.value] = event.value
         ckRecord[FinancialEvent.type] = event.type.rawValue
-        ckRecord[FinancialEvent.frequency] = event.frequency.rawValue
+        ckRecord[FinancialEvent.frequency] = event.frequency.index
         ckRecord[FinancialEvent.notes] = event.notes
         ckRecord[FinancialEvent.startDate] = event.startDate
         
@@ -152,7 +152,7 @@ extension CloudKitManager {
             let type = FinancialEventType(rawValue: rawType),
             let value = record[FinancialEvent.value] as? Int,
             let rawFrequency = record[FinancialEvent.frequency] as? Int,
-            let frequency = Frequency(rawValue: rawFrequency),
+            let frequency = Frequency(index: rawFrequency),
             let startDate = record[FinancialEvent.startDate] as? Date
         else { return nil }
         

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD38349F241DD43F000E8C7C /* KeyboardNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */; };
 		BD3C928F23F9B64700B62B61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C928E23F9B64700B62B61 /* AppDelegate.swift */; };
 		BD3C929123F9B64700B62B61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C929023F9B64700B62B61 /* SceneDelegate.swift */; };
 		BD3C929623F9B64700B62B61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C929523F9B64700B62B61 /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotifier.swift; sourceTree = "<group>"; };
 		BD3C928B23F9B64700B62B61 /* RealBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3C928E23F9B64700B62B61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD3C929023F9B64700B62B61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				BD3C928E23F9B64700B62B61 /* AppDelegate.swift */,
 				BD3C929023F9B64700B62B61 /* SceneDelegate.swift */,
 				BD3C929523F9B64700B62B61 /* ContentView.swift */,
+				BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */,
 			);
 			path = AppLevel;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				BD3C92BC23F9B75500B62B61 /* Frequency.swift in Sources */,
 				BDD27DD024032B700072F7D4 /* CloudKitManager.swift in Sources */,
 				BDA6F1BF2403849C0080BA7D /* FinancialEventDetail.swift in Sources */,
+				BD38349F241DD43F000E8C7C /* KeyboardNotifier.swift in Sources */,
 				BDA6F1C1240387590080BA7D /* FinancialStateViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
