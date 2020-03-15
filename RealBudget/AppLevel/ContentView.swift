@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var financialStateResource: FinancialStateResource
+    @EnvironmentObject var eventsResource: FinancialEventsResource
     var body: some View {
         FinancialStateView()
     }

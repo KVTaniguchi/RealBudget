@@ -8,9 +8,20 @@
 
 import Foundation
 
-struct FinancialState {
+struct FinancialStateViewModel {
     var expectedBalance: Int
     var actualBalance: Int
     var incomes: [FinancialEvent]
     var expenses: [FinancialEvent]
+}
+
+struct FinancialStateRecord {
+    let identifier: String
+    var balance: Int
+}
+
+extension FinancialStateRecord {
+    static let ckKey = "realBudgetFinancialState"
+    static let identifier = "identifier"
+    static let balance = "balance"
 }

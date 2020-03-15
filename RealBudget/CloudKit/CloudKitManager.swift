@@ -20,22 +20,96 @@ final class CloudKitManager {
     private let sharedDatabase = CKContainer(identifier: "iCloud.RealBudget").sharedCloudDatabase
     
     private init() { }
-        
     
-//        func mutate(person: Person, completion: @escaping (Error?) -> Void) {
-//
-//            fetchRecord(identifier: person.identifier) { [weak self] (records, error) in
-//                guard let record = recordsRealBudget?.first else {
-//                    completion(error)
-//                    return
-//                }
-//
-//                self?.update(person: person, record: record) { error in
-//                    completion(error)
-//                }
-//            }
-//        }
-//
+    // fetch all events
+    
+    // fetch a financial state with balance
+
+    func deleteEvent(_ record: CKRecord, completion: @escaping (CKRecord.ID?, Error?) -> Void) {
+        privateDatabase.delete(withRecordID: record.recordID, completionHandler: completion)
+    }
+    
+    func mutateEvent(_ event: FinancialEvent, record: CKRecord, completion: @escaping (Error?) -> Void) {
+        let updatedRecord = updateEvent(ckRecord: record, event: event)
+        privateDatabase.save(updatedRecord) { (_, error) in
+            completion(error)
+        }
+    }
+    
+    func mutateState(_ state: FinancialStateRecord, record: CKRecord, completion: @escaping (Error?) -> Void) {
+        let updatedRecord = updateState(ckRecord: record, state)
+        privateDatabase.save(updatedRecord) { (_, error) in
+            completion(error)
+        }
+    }
+    
+    func loadFinancialState(completion: @escaping (FinancialStateRecord?) -> Void) {
+        let query = CKQuery(recordType: FinancialStateRecord.ckKey, predicate: NSPredicate(value: true))
+        let operation = CKQueryOperation(query: query)
+        
+        var state: FinancialStateRecord? = nil
+        
+        operation.queryCompletionBlock = { (cursor, error) in
+            completion(state)
+        }
+        
+        operation.recordFetchedBlock = { record in
+            if let fetchedState = self.processState(record: record) {
+                state = fetchedState
+            }
+        }
+    }
+    
+    func loadEvents(completion: @escaping ([FinancialEvent]) -> Void) {
+        let query = CKQuery(recordType: FinancialEvent.ckKey, predicate: NSPredicate(value: true))
+        let operation = CKQueryOperation(query: query)
+        
+        var fetchedEvents = [FinancialEvent]()
+        
+        operation.queryCompletionBlock = { (cursor, error) in
+            if let cursor = cursor {
+                print(cursor)
+            } else {
+                completion(fetchedEvents)
+            }
+        }
+
+        operation.recordFetchedBlock = { record in
+            if let fetchedEvent = self.processEvent(record: record) {
+                fetchedEvents.append(fetchedEvent)
+            }
+        }
+
+        self.privateDatabase.add(operation)
+    }
+        
+    func fetchExisting(shareID: CKRecord.ID, completion: @escaping ([CKRecord.ID: CKRecord]?, Error?) -> Void) {
+        let fetchShareOp = CKFetchRecordsOperation(recordIDs: [shareID])
+        
+        fetchShareOp.fetchRecordsCompletionBlock = completion
+        
+        CKContainer.default().sharedCloudDatabase.add(fetchShareOp)
+    }
+    
+    func makeNewState(_ state: FinancialStateRecord, completion: @escaping (Error?) -> Void) {
+        let newRecordId = CKRecord.ID(recordName: state.identifier)
+        let newRecord = CKRecord(recordType: FinancialStateRecord.ckKey, recordID: newRecordId)
+        let updatedRecord = updateState(ckRecord: newRecord, state)
+        privateDatabase.save(updatedRecord) { (_, error) in
+            completion(error)
+        }
+    }
+    
+    func makeNewEvent(_ event: FinancialEvent, completion: @escaping (Error?) -> Void) {
+        let newRecordId = CKRecord.ID(recordName: event.id)
+        let newRecord = CKRecord(recordType: FinancialEvent.ckKey, recordID: newRecordId)
+        let updatedRecord = updateEvent(ckRecord: newRecord, event: event)
+        privateDatabase.save(updatedRecord) { (_, error) in
+            completion(error)
+        }
+    }
+}
+
 //        func saveNew(person: Person, completionHandler: @escaping (Error?) -> Void) {
 //            let newRecordId = CKRecord.ID(recordName: person.identifier)
 //            let newRecord = CKRecord(recordType: Person.ckKey, recordID: newRecordId)
@@ -46,58 +120,6 @@ final class CloudKitManager {
 //                completionHandler(error)
 //            }
 //        }
-//
-//        func fetchRecord(identifier: String, completionHandler: @escaping ([CKRecord]?, Error?) -> Void) {
-//            let idPredicate = NSPredicate(format: "identifier == %@", identifier)
-//            let ckQuery = CKQuery(recordType: Person.ckKey, predicate: idPredicate)
-//            privateDatabase.perform(ckQuery, inZoneWith: nil, completionHandler: completionHandler)
-//        }
-//
-//        func delete(record: CKRecord, completionHandler: @escaping (CKRecord.ID?, Error?) -> Void) {
-//            privateDatabase.delete(withRecordID: record.recordID, completionHandler: completionHandler)
-//        }
-//
-//        func update(person: Person, record: CKRecord, completion: @escaping (Error?) -> Void) {
-//            let updatedRecord = updateRecord(ckRecord: record, person: person)
-//
-//            privateDatabase.save(updatedRecord) { (record, error) in
-//                completion(error)
-//            }
-//        }
-        
-//        func loadSavedConsumables(completion: @escaping ([Person], Error?) -> Void) {
-//            let query = CKQuery(recordType: Person.ckKey, predicate: NSPredicate(value: true))
-//            let operation = CKQueryOperation(query: query)
-//
-//            var fetchedPeople = [Person]()
-//
-//            operation.queryCompletionBlock = { (cursor, error) in
-//                if let cursor = cursor {
-//                    print(cursor)
-//                } else if let error = error {
-//                    completion([], error)
-//                } else {
-//                    completion(fetchedPeople, error)
-//                }
-//            }
-//
-//            operation.recordFetchedBlock = { record in
-//                if let fetchedPerson = self.process(record: record) {
-//                    fetchedPeople.append(fetchedPerson)
-//                }
-//            }
-//
-//            self.privateDatabase.add(operation)
-//        }
-        
-        func fetchExisting(shareID: CKRecord.ID, completion: @escaping ([CKRecord.ID: CKRecord]?, Error?) -> Void) {
-            let fetchShareOp = CKFetchRecordsOperation(recordIDs: [shareID])
-            
-            fetchShareOp.fetchRecordsCompletionBlock = completion
-            
-            CKContainer.default().sharedCloudDatabase.add(fetchShareOp)
-        }
-    }
 
 /// convenience
 extension CloudKitManager {
@@ -146,38 +168,18 @@ extension CloudKitManager {
                               startDate: startDate,
                               endDate: endDate)
     }
-//
-//    private func process(record: CKRecord) -> Person? {
-//        guard let identifier = record[Person.identifier] as? String,
-//            let firstName = record[Person.firstNameKey] as? String,
-//            let lastName = record[Person.lastNameKey] as? String
-//        else { return nil }
-//
-//        let middleName = record[Person.middleNameKey] as? String
-//        let notes = record[Person.notes] as? String
-//        let email = record[Person.email] as? String
-//        let phone = record[Person.phone] as? String
-//        let location = record[Person.location] as? String
-//        let company = record[Person.company] as? String
-//        let occupation = record[Person.occupation] as? String
-//        let shortDescription = record[Person.shortDescription] as? String
-//        let ranking = record[Person.ranking] as? Int ?? 0
-//
-//        let associatedIds = record[Person.associates] as? [String]
-//
-//        return Person(identifier: identifier,
-//                      firstName: firstName,
-//                      lastName: lastName,
-//                      middleName: middleName,
-//                      notes: notes,
-//                      email: email,
-//                      phoneNumber: phone,
-//                      location: location,
-//                      companyName: company,
-//                      occupation: occupation,
-//                      possibleAssociates: [],
-//                      associateIds: associatedIds,
-//                      shortDescription: shortDescription,
-//                      ranking: ranking)
-//    }
+    
+    private func updateState(ckRecord: CKRecord, _ state: FinancialStateRecord) -> CKRecord {
+        ckRecord[FinancialStateRecord.identifier] = state.identifier
+        ckRecord[FinancialStateRecord.balance] = state.balance
+        
+        return ckRecord
+    }
+    
+    private func processState(record: CKRecord) -> FinancialStateRecord? {
+        guard let identifier = record[FinancialStateRecord.identifier] as? String,
+            let balance = record[FinancialStateRecord.balance] as? Int else { return nil }
+        
+        return FinancialStateRecord(identifier: identifier, balance: balance)
+    }
 }
