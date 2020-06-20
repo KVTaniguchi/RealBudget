@@ -21,12 +21,12 @@ struct FinancialStateView: View {
         // edit button in nav view , toggles to save when active
         NavigationView {
             List {
-                TextField("True balance", text: $balanceText, onEditingChanged: { (changed) in
+                TextField("True balance", text: $balanceText, onEditingChanged: { changed in
                     if let balanceTextInt = Int(self.balanceText) {
                         self.financialStateResource.record?.balance = balanceTextInt
                     }
                 }) {
-                    
+                    print("on commit \(self.balanceText)")
                 }
                 Section(header: Text("Future balance")) {
                     Text("Predicted Balance on X date: 100")
@@ -52,7 +52,6 @@ struct FinancialStateView: View {
                                         Text("Row \(row)")
                                     }
                                 }
-                                
                             }
                         }
                     }
