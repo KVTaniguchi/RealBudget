@@ -27,9 +27,7 @@ final class FinancialStateResource: ObservableObject {
     }
     
     func load() {
-        CloudKitManager.shared.loadFinancialState { (state) in
-            self.record = state
-        }
+        // load from core data
     }
 }
 
@@ -51,11 +49,6 @@ final class FinancialEventsResource: ObservableObject {
     
     func load() {
         var newEventsHashed = [String: FinancialEvent]()
-        CloudKitManager.shared.loadEvents { (events) in
-            events.forEach {
-                newEventsHashed[$0.id] = $0
-            }
-            self.eventsHashed = newEventsHashed
-        }
+        // load from core data
     }
 }

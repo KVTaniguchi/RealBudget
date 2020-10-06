@@ -16,7 +16,7 @@ extension NumberFormatter {
     }
 }
 
-struct FinancialEventDetail: View {
+struct FinancialEventDetailView: View {
     @State private var isSaving = false
     @State private var shouldDisableSave: Bool = false
     @State private var scratchModel: FinancialEvent
@@ -38,7 +38,7 @@ struct FinancialEventDetail: View {
         Binding<String>(
             get: { self.string(from: self.scratchModel.value) },
             set: {
-                if let value = FinancialEventDetail.formatter.number(from: $0) {
+                if let value = FinancialEventDetailView.formatter.number(from: $0) {
                     self.scratchModel.value = value.intValue
                 }
             }
