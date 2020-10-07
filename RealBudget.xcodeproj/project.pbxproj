@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD38349F241DD43F000E8C7C /* KeyboardNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */; };
-		BD3C928F23F9B64700B62B61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C928E23F9B64700B62B61 /* AppDelegate.swift */; };
-		BD3C929123F9B64700B62B61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C929023F9B64700B62B61 /* SceneDelegate.swift */; };
+		BD3C928F23F9B64700B62B61 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C928E23F9B64700B62B61 /* AppMain.swift */; };
 		BD3C929623F9B64700B62B61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C929523F9B64700B62B61 /* ContentView.swift */; };
 		BD3C929823F9B64800B62B61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3C929723F9B64800B62B61 /* Assets.xcassets */; };
 		BD3C929B23F9B64800B62B61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3C929A23F9B64800B62B61 /* Preview Assets.xcassets */; };
@@ -42,8 +41,7 @@
 /* Begin PBXFileReference section */
 		BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotifier.swift; sourceTree = "<group>"; };
 		BD3C928B23F9B64700B62B61 /* RealBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD3C928E23F9B64700B62B61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BD3C929023F9B64700B62B61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BD3C928E23F9B64700B62B61 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
 		BD3C929523F9B64700B62B61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD3C929723F9B64800B62B61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD3C929A23F9B64800B62B61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -144,8 +142,7 @@
 		BD3C92B323F9B65F00B62B61 /* AppLevel */ = {
 			isa = PBXGroup;
 			children = (
-				BD3C928E23F9B64700B62B61 /* AppDelegate.swift */,
-				BD3C929023F9B64700B62B61 /* SceneDelegate.swift */,
+				BD3C928E23F9B64700B62B61 /* AppMain.swift */,
 				BD3C929523F9B64700B62B61 /* ContentView.swift */,
 				BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */,
 			);
@@ -164,10 +161,7 @@
 		BD3C92B523F9B68B00B62B61 /* FinancialState */ = {
 			isa = PBXGroup;
 			children = (
-				BD3C92B623F9B6AB00B62B61 /* FinancialState.swift */,
 				BD3C92C623FABBD600B62B61 /* FinancialStateView.swift */,
-				BDD27DD124032DD70072F7D4 /* FinancialStateResource.swift */,
-				BDA6F1C0240387590080BA7D /* FinancialStateViewModel.swift */,
 				BD44D7B9252C0D350051FBD3 /* Forecast.swift */,
 			);
 			path = FinancialState;
@@ -185,6 +179,9 @@
 		BD44D7CC252DFE600051FBD3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BD3C92B623F9B6AB00B62B61 /* FinancialState.swift */,
+				BDA6F1C0240387590080BA7D /* FinancialStateViewModel.swift */,
+				BDD27DD124032DD70072F7D4 /* FinancialStateResource.swift */,
 				BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */,
 			);
 			path = Data;
@@ -314,9 +311,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD3C928F23F9B64700B62B61 /* AppDelegate.swift in Sources */,
+				BD3C928F23F9B64700B62B61 /* AppMain.swift in Sources */,
 				BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */,
-				BD3C929123F9B64700B62B61 /* SceneDelegate.swift in Sources */,
 				BD3C92C723FABBD600B62B61 /* FinancialStateView.swift in Sources */,
 				BD44D7CF252DFE9A0051FBD3 /* FinancialState.xcdatamodeld in Sources */,
 				BD3C929623F9B64700B62B61 /* ContentView.swift in Sources */,
