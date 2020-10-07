@@ -20,34 +20,34 @@ struct FinancialStateView: View {
     var sampleData: [Forecast] {
         var sample = [Forecast]()
         
-        let currentDate = Date()
+        sample.append(Forecast(amount: "100", date: Date()))
+        
+        var currentDate = Date()
         let oneweek = TimeInterval(604800)
         
         for index in (0 ..< 20) {
-            let new = currentDate.addingTimeInterval(oneweek)
-            let forecast = Forecast(amount: "\(100 + index)", date: new)
+            currentDate = currentDate.addingTimeInterval(oneweek)
+            let forecast = Forecast(amount: "\(100 + index)", date: currentDate)
             sample.append(forecast)
         }
         
         return sample
     }
     
-    // List
-    // each cell has a line
-    // left side is date
-    // right side amount
-    
     var body: some View {
         // edit button in nav view , toggles to save when active
-        VStack {
-            ScrollView {
-                VStack(spacing: 0) {
-                    ForEach(sampleData) { data in
-                        ForecastView(forecast: data)
+        GeometryReader { g in
+            VStack {
+                ScrollView {
+                    VStack(alignment: .centerLine, spacing: 0) {
+                        ForEach(sampleData) { data in
+                            ForecastView(forecast: data).frame(maxWidth: g.size.width)
+                        }
                     }
                 }
             }
         }
+        
     }
     
     func sectionIsExpanded(section: FinancialEventType) -> Bool {
@@ -67,4 +67,14 @@ struct FinancialStateView_Previews: PreviewProvider {
     static var previews: some View {
         FinancialStateView()
     }
+}
+
+extension HorizontalAlignment {
+    struct CenterLine: AlignmentID {
+        static func defaultValue(in context: ViewDimensions) -> CGFloat {
+            context[HorizontalAlignment.center]
+        }
+    }
+    
+    static let centerLine = HorizontalAlignment(CenterLine.self)
 }

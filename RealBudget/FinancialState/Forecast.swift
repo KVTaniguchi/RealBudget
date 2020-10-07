@@ -24,11 +24,11 @@ struct ForecastView: View {
     let forecast: Forecast
     
     var body: some View {
-        HStack {
+        HStack() {
             Spacer()
-            Text("date")
-            CenterLineEyeView(isCurrentWeek: forecast.isCurrentWeek)
-            Text("amount")
+            Text("\(RBDateFormatter.shared.formatter.string(from: forecast.date))")
+            CenterLineEyeView(isCurrentWeek: forecast.isCurrentWeek).alignmentGuide(.centerLine) { d in d[VerticalAlignment.center] }
+            Text(forecast.amount)
             Spacer()
         }
     }
