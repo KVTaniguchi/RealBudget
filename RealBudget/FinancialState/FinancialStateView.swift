@@ -47,19 +47,6 @@ struct FinancialStateView: View {
                 }
             }
         }
-        
-    }
-    
-    func sectionIsExpanded(section: FinancialEventType) -> Bool {
-        sectionState[section] ?? false
-    }
-    
-    func incomeIsExpanded(_ section:Int) -> Bool {
-        incomeSectionState[section] ?? false
-    }
-    
-    func expenseIsExpanded(_ section:Int) -> Bool {
-        expenseSectionState[section] ?? false
     }
 }
 

@@ -21,6 +21,7 @@
 		BD44D7BA252C0D350051FBD3 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7B9252C0D350051FBD3 /* Forecast.swift */; };
 		BD44D7BF252CA0400051FBD3 /* RBDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7BE252CA0400051FBD3 /* RBDateFormatter.swift */; };
 		BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7C4252CA04C0051FBD3 /* RBMoneyFormatters.swift */; };
+		BD44D7CF252DFE9A0051FBD3 /* FinancialState.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */; };
 		BDA6F1BF2403849C0080BA7D /* FinancialEventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */; };
 		BDA6F1C1240387590080BA7D /* FinancialStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6F1C0240387590080BA7D /* FinancialStateViewModel.swift */; };
 		BDD27DC9240328E00072F7D4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD27DC8240328E00072F7D4 /* CloudKit.framework */; };
@@ -57,6 +58,7 @@
 		BD44D7B9252C0D350051FBD3 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		BD44D7BE252CA0400051FBD3 /* RBDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBDateFormatter.swift; sourceTree = "<group>"; };
 		BD44D7C4252CA04C0051FBD3 /* RBMoneyFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBMoneyFormatters.swift; sourceTree = "<group>"; };
+		BD44D7CE252DFE9A0051FBD3 /* FinancialState.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinancialState.xcdatamodel; sourceTree = "<group>"; };
 		BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialEventDetailView.swift; sourceTree = "<group>"; };
 		BDA6F1C0240387590080BA7D /* FinancialStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialStateViewModel.swift; sourceTree = "<group>"; };
 		BDD27DC6240328D10072F7D4 /* RealBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RealBudget.entitlements; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		BD3C928D23F9B64700B62B61 /* RealBudget */ = {
 			isa = PBXGroup;
 			children = (
+				BD44D7CC252DFE600051FBD3 /* Data */,
 				BD44D7BD252CA0290051FBD3 /* Formatters */,
 				BDA6F1BD240384890080BA7D /* EventDetail */,
 				BDD27DCE24032B640072F7D4 /* CloudKit */,
@@ -177,6 +180,14 @@
 				BD44D7C4252CA04C0051FBD3 /* RBMoneyFormatters.swift */,
 			);
 			path = Formatters;
+			sourceTree = "<group>";
+		};
+		BD44D7CC252DFE600051FBD3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		BDA6F1BD240384890080BA7D /* EventDetail */ = {
@@ -307,6 +318,7 @@
 				BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */,
 				BD3C929123F9B64700B62B61 /* SceneDelegate.swift in Sources */,
 				BD3C92C723FABBD600B62B61 /* FinancialStateView.swift in Sources */,
+				BD44D7CF252DFE9A0051FBD3 /* FinancialState.xcdatamodeld in Sources */,
 				BD3C929623F9B64700B62B61 /* ContentView.swift in Sources */,
 				BD44D7BA252C0D350051FBD3 /* Forecast.swift in Sources */,
 				BDD27DCB2403291B0072F7D4 /* FinancialEvent.swift in Sources */,
@@ -400,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -454,7 +466,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -581,6 +593,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BD44D7CE252DFE9A0051FBD3 /* FinancialState.xcdatamodel */,
+			);
+			currentVersion = BD44D7CE252DFE9A0051FBD3 /* FinancialState.xcdatamodel */;
+			path = FinancialState.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BD3C928323F9B64700B62B61 /* Project object */;
 }
