@@ -9,18 +9,6 @@
 import Foundation
 import SwiftUI
 
-struct Forecast: Identifiable {
-    let date: Date
-    var change = 0
-    var balance = 0
-    let id = UUID().uuidString
-    
-    var isCurrentWeek: Bool {
-        let currentCalendar = Calendar.current
-        return currentCalendar.isDayInCurrentWeek(date: date) ?? false
-    }
-}
-
 struct ForecastView: View {
     let forecast: Forecast
     
@@ -44,16 +32,5 @@ struct CenterLineEyeView: View {
             Image(systemName: isCurrentWeek ? "largecircle.fill.circle" : "smallcircle.fill.circle")
             Rectangle().frame(width: 1.0, height: 40, alignment: .center)
         }
-    }
-}
-
-
-
-private extension Calendar {
-    func isDayInCurrentWeek(date: Date) -> Bool? {
-        let currentComponents = Calendar.current.dateComponents([.weekOfYear], from: Date())
-        let dateComponents = Calendar.current.dateComponents([.weekOfYear], from: date)
-        guard let currentWeekOfYear = currentComponents.weekOfYear, let dateWeekOfYear = dateComponents.weekOfYear else { return nil }
-        return currentWeekOfYear == dateWeekOfYear
     }
 }

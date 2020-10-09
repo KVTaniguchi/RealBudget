@@ -12,14 +12,3 @@ struct FinancialState {
     let actualBalance: Int
     var events: [FinancialEvent]
 }
-
-struct FinancialStateRecord {
-    let identifier: String
-    var balance: Int
-}
-
-extension FinancialStateRecord {
-    static let ckKey = "realBudgetFinancialState"
-    static let identifier = "identifier"
-    static let balance = "balance"
-}

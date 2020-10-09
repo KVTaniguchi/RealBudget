@@ -11,12 +11,6 @@ import Foundation
 final class PredictionEngine {
     static let shared = PredictionEngine()
     
-    let formatter: DateFormatter = {
-        let f = DateFormatter()
-        f.dateStyle = .short
-        return f
-    }()
-    
     func predict(state: FinancialState) -> [Date: Forecast] {
         let startingDate = Date()
         let dates = (0 ..< 52).map {

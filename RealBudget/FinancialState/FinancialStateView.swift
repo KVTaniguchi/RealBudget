@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct FinancialStateView: View {
-    @EnvironmentObject var financialStateResource: FinancialStateResource
-    @EnvironmentObject var eventsResource: FinancialEventsResource
     @State var sectionState: [FinancialEventType: Bool] = [:]
     @State var incomeSectionState: [Int: Bool] = [:]
     @State var expenseSectionState: [Int: Bool] = [:]
