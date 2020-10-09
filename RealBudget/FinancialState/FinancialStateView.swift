@@ -20,14 +20,14 @@ struct FinancialStateView: View {
     var sampleData: [Forecast] {
         var sample = [Forecast]()
         
-        sample.append(Forecast(amount: "100", date: Date()))
+        sample.append(Forecast(date: Date(), change: 0, balance: 0))
         
         var currentDate = Date()
         let oneweek = TimeInterval(604800)
         
         for index in (0 ..< 20) {
             currentDate = currentDate.addingTimeInterval(oneweek)
-            let forecast = Forecast(amount: "\(100 + index)", date: currentDate)
+            let forecast = Forecast(date: currentDate, change: 0, balance: 100 + index)
             sample.append(forecast)
         }
         

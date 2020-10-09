@@ -10,8 +10,9 @@ import Foundation
 import SwiftUI
 
 struct Forecast: Identifiable {
-    let amount: String
     let date: Date
+    var change = 0
+    var balance = 0
     let id = UUID().uuidString
     
     var isCurrentWeek: Bool {
@@ -28,7 +29,7 @@ struct ForecastView: View {
             Spacer()
             Text("\(RBDateFormatter.shared.formatter.string(from: forecast.date))")
             CenterLineEyeView(isCurrentWeek: forecast.isCurrentWeek).alignmentGuide(.centerLine) { d in d[VerticalAlignment.center] }
-            Text(forecast.amount)
+            Text("100")
             Spacer()
         }
     }

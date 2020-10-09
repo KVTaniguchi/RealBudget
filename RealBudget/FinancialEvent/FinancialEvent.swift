@@ -12,9 +12,8 @@ struct FinancialEvent: Identifiable {
     var id: String
     var type: FinancialEventType
     var name: String
-    var value: Int?
+    var value: Int
     var frequency: Frequency
-    var notes: String?
     var startDate: Date
     var endDate: Date?
     var amountString: String = ""

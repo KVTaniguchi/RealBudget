@@ -11,9 +11,20 @@ import CoreData
 
 @main
 struct ReadBudget: App {
+    var container: NSPersistentContainer
+    
+    init() {
+        container = NSPersistentContainer(name: "FinancialState")
+        container.loadPersistentStores { (_, error) in
+            if let error = error {
+                print(error)
+            }
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environment(\.managedObjectContext, container.viewContext)
         }
     }
 }

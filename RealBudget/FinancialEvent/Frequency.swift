@@ -9,27 +9,6 @@
 import Foundation
 
 enum Frequency: CaseIterable {
-    init?(index: Int) {
-        switch index {
-        case 0:
-            self = .onceOnly
-        case 1:
-            self = .daily
-        case 2:
-            self = .weekly
-        case 3:
-            self = .biweekly
-        case 4:
-            self = .monthly
-        case 5:
-            self = .annually
-        default:
-            return nil
-        }
-    }
-    
-    case onceOnly
-    case daily
     case weekly
     case biweekly
     case monthly
@@ -37,10 +16,6 @@ enum Frequency: CaseIterable {
     
     var index: Int {
         switch self {
-        case .onceOnly:
-            return 0
-        case .daily:
-            return 1
         case .weekly:
             return 2
         case .biweekly:
@@ -54,10 +29,6 @@ enum Frequency: CaseIterable {
     
     var title: String {
         switch self {
-        case .onceOnly:
-            return "Once only"
-        case .daily:
-            return "Daily"
         case .weekly:
             return "Weekly"
         case .biweekly:
@@ -66,6 +37,45 @@ enum Frequency: CaseIterable {
             return "Monthly"
         case .annually:
             return "Annually"
+        }
+    }
+    
+    var calendarComponent: Calendar.Component {
+        switch self {
+        case .weekly:
+            return .day
+        case .biweekly:
+            return .day
+        case .monthly:
+            return .month
+        case .annually:
+            return .year
+        }
+    }
+    
+    var recurrences: Int {
+        switch self {
+        case .weekly:
+            return 53
+        case .biweekly:
+            return 27
+        case .monthly:
+            return 12
+        case .annually:
+            return 2
+        }
+    }
+    
+    var interval: Int {
+        switch self {
+        case .weekly:
+            return 7
+        case .biweekly:
+            return 14
+        case .monthly:
+            return 1
+        case .annually:
+            return 1
         }
     }
 }

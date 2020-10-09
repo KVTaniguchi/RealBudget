@@ -49,16 +49,8 @@ struct FinancialEventDetailView: View {
         if let event = event {
             _scratchModel = State(initialValue: event)
         } else {
-            _scratchModel = State(initialValue: FinancialEvent(
-                id: "",
-                type: .expense,
-                name: "",
-                value: nil,
-                frequency: .daily,
-                notes: nil,
-                startDate: Date(),
-                endDate: nil)
-            )
+            let event = FinancialEvent(id: UUID().uuidString, type: .expense, name: "", value: 0, frequency: .weekly, startDate: Date(), endDate: nil, amountString: "")
+            _scratchModel = State(initialValue: event)
         }
     }
     
@@ -91,10 +83,10 @@ struct FinancialEventDetailView: View {
                         TextField("Amount", text: amountProxy).keyboardType(.decimalPad)
                         
                         Picker("Frequency", selection: $scratchModel.frequency) {
-                            Text("Daily").tag(Frequency.daily)
                             Text("Weekly").tag(Frequency.weekly)
                             Text("Bi-weekly").tag(Frequency.biweekly)
                             Text("Monthly").tag(Frequency.monthly)
+                            Text("Annually").tag(Frequency.annually)
                         }
                         .pickerStyle(SegmentedPickerStyle())
                     }

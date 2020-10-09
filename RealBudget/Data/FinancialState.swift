@@ -8,11 +8,9 @@
 
 import Foundation
 
-struct FinancialStateViewModel {
-    var expectedBalance: Int
-    var actualBalance: Int
-    var incomes: [FinancialEvent]
-    var expenses: [FinancialEvent]
+struct FinancialState {
+    let actualBalance: Int
+    var events: [FinancialEvent]
 }
 
 struct FinancialStateRecord {

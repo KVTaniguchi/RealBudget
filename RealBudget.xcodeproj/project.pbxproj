@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD21B1A225302167003E2AA2 /* PredictionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1A125302167003E2AA2 /* PredictionEngine.swift */; };
 		BD38349F241DD43F000E8C7C /* KeyboardNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */; };
 		BD3C928F23F9B64700B62B61 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C928E23F9B64700B62B61 /* AppMain.swift */; };
 		BD3C929623F9B64700B62B61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C929523F9B64700B62B61 /* ContentView.swift */; };
@@ -22,7 +23,6 @@
 		BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7C4252CA04C0051FBD3 /* RBMoneyFormatters.swift */; };
 		BD44D7CF252DFE9A0051FBD3 /* FinancialState.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */; };
 		BDA6F1BF2403849C0080BA7D /* FinancialEventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */; };
-		BDA6F1C1240387590080BA7D /* FinancialStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6F1C0240387590080BA7D /* FinancialStateViewModel.swift */; };
 		BDD27DC9240328E00072F7D4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD27DC8240328E00072F7D4 /* CloudKit.framework */; };
 		BDD27DCB2403291B0072F7D4 /* FinancialEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD27DCA2403291B0072F7D4 /* FinancialEvent.swift */; };
 		BDD27DD224032DD70072F7D4 /* FinancialStateResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD27DD124032DD70072F7D4 /* FinancialStateResource.swift */; };
@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD21B1A125302167003E2AA2 /* PredictionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionEngine.swift; sourceTree = "<group>"; };
 		BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotifier.swift; sourceTree = "<group>"; };
 		BD3C928B23F9B64700B62B61 /* RealBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3C928E23F9B64700B62B61 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		BD44D7C4252CA04C0051FBD3 /* RBMoneyFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBMoneyFormatters.swift; sourceTree = "<group>"; };
 		BD44D7CE252DFE9A0051FBD3 /* FinancialState.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinancialState.xcdatamodel; sourceTree = "<group>"; };
 		BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialEventDetailView.swift; sourceTree = "<group>"; };
-		BDA6F1C0240387590080BA7D /* FinancialStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialStateViewModel.swift; sourceTree = "<group>"; };
 		BDD27DC6240328D10072F7D4 /* RealBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RealBudget.entitlements; sourceTree = "<group>"; };
 		BDD27DC8240328E00072F7D4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BDD27DCA2403291B0072F7D4 /* FinancialEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialEvent.swift; sourceTree = "<group>"; };
@@ -84,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD21B1A025302158003E2AA2 /* Prediction */ = {
+			isa = PBXGroup;
+			children = (
+				BD21B1A125302167003E2AA2 /* PredictionEngine.swift */,
+			);
+			path = Prediction;
+			sourceTree = "<group>";
+		};
 		BD3C928223F9B64700B62B61 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +114,7 @@
 		BD3C928D23F9B64700B62B61 /* RealBudget */ = {
 			isa = PBXGroup;
 			children = (
+				BD21B1A025302158003E2AA2 /* Prediction */,
 				BD44D7CC252DFE600051FBD3 /* Data */,
 				BD44D7BD252CA0290051FBD3 /* Formatters */,
 				BDA6F1BD240384890080BA7D /* EventDetail */,
@@ -180,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				BD3C92B623F9B6AB00B62B61 /* FinancialState.swift */,
-				BDA6F1C0240387590080BA7D /* FinancialStateViewModel.swift */,
 				BDD27DD124032DD70072F7D4 /* FinancialStateResource.swift */,
 				BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */,
 			);
@@ -321,10 +329,10 @@
 				BDD27DD224032DD70072F7D4 /* FinancialStateResource.swift in Sources */,
 				BD3C92B723F9B6AB00B62B61 /* FinancialState.swift in Sources */,
 				BD44D7BF252CA0400051FBD3 /* RBDateFormatter.swift in Sources */,
+				BD21B1A225302167003E2AA2 /* PredictionEngine.swift in Sources */,
 				BD3C92BC23F9B75500B62B61 /* Frequency.swift in Sources */,
 				BDA6F1BF2403849C0080BA7D /* FinancialEventDetailView.swift in Sources */,
 				BD38349F241DD43F000E8C7C /* KeyboardNotifier.swift in Sources */,
-				BDA6F1C1240387590080BA7D /* FinancialStateViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
