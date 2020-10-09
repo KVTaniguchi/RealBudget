@@ -12,6 +12,7 @@ import CoreData
 @main
 struct ReadBudget: App {
     var container: NSPersistentContainer
+    @Environment(\.scenePhase) var scenePhase
     
     init() {
         container = NSPersistentContainer(name: "FinancialState")
@@ -25,6 +26,22 @@ struct ReadBudget: App {
     var body: some Scene {
         WindowGroup {
             ContentView().environment(\.managedObjectContext, container.viewContext)
+        }
+        .onChange(of: scenePhase) { phase in
+            if phase == .background {
+                saveContext()
+            }
+        }
+    }
+    
+    func saveContext () {
+        let context = container.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                // Show the error here
+            }
         }
     }
 }
