@@ -96,9 +96,3 @@ struct FinancialEventDetailView: View {
         }.padding(.top, 40)
     }
 }
-
-//struct FinancialEventDetail_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FinancialEventDetail()
-//    }
-//}

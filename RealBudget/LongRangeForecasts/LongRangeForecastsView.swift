@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct FinancialStateView: View {
+struct LongRangeForecastsView: View {
     @State var sectionState: [FinancialEventType: Bool] = [:]
     @State var incomeSectionState: [Int: Bool] = [:]
     @State var expenseSectionState: [Int: Bool] = [:]
@@ -45,12 +45,6 @@ struct FinancialStateView: View {
                 }
             }
         }
-    }
-}
-
-struct FinancialStateView_Previews: PreviewProvider {
-    static var previews: some View {
-        FinancialStateView()
     }
 }
 

@@ -9,6 +9,6 @@
 import Foundation
 
 struct FinancialState {
-    let actualBalance: Int
+    var actualBalance: Int
     var events: [FinancialEvent]
 }

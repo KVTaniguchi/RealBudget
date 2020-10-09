@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BD21B1A225302167003E2AA2 /* PredictionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1A125302167003E2AA2 /* PredictionEngine.swift */; };
 		BD21B1AC25302593003E2AA2 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1AB25302593003E2AA2 /* Forecast.swift */; };
+		BD21B1B5253027C1003E2AA2 /* CurrentStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1B4253027C1003E2AA2 /* CurrentStateView.swift */; };
+		BD21B1BB25302853003E2AA2 /* EventsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1BA25302853003E2AA2 /* EventsList.swift */; };
 		BD38349F241DD43F000E8C7C /* KeyboardNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */; };
 		BD3C928F23F9B64700B62B61 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C928E23F9B64700B62B61 /* AppMain.swift */; };
 		BD3C929623F9B64700B62B61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C929523F9B64700B62B61 /* ContentView.swift */; };
@@ -18,7 +20,7 @@
 		BD3C92A923F9B64800B62B61 /* RealBudgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C92A823F9B64800B62B61 /* RealBudgetTests.swift */; };
 		BD3C92B723F9B6AB00B62B61 /* FinancialState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C92B623F9B6AB00B62B61 /* FinancialState.swift */; };
 		BD3C92BC23F9B75500B62B61 /* Frequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C92BB23F9B75500B62B61 /* Frequency.swift */; };
-		BD3C92C723FABBD600B62B61 /* FinancialStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C92C623FABBD600B62B61 /* FinancialStateView.swift */; };
+		BD3C92C723FABBD600B62B61 /* LongRangeForecastsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C92C623FABBD600B62B61 /* LongRangeForecastsView.swift */; };
 		BD44D7BA252C0D350051FBD3 /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7B9252C0D350051FBD3 /* ForecastView.swift */; };
 		BD44D7BF252CA0400051FBD3 /* RBDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7BE252CA0400051FBD3 /* RBDateFormatter.swift */; };
 		BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7C4252CA04C0051FBD3 /* RBMoneyFormatters.swift */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		BD21B1A125302167003E2AA2 /* PredictionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionEngine.swift; sourceTree = "<group>"; };
 		BD21B1AB25302593003E2AA2 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		BD21B1B4253027C1003E2AA2 /* CurrentStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentStateView.swift; sourceTree = "<group>"; };
+		BD21B1BA25302853003E2AA2 /* EventsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsList.swift; sourceTree = "<group>"; };
 		BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotifier.swift; sourceTree = "<group>"; };
 		BD3C928B23F9B64700B62B61 /* RealBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3C928E23F9B64700B62B61 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
@@ -54,7 +58,7 @@
 		BD3C92AA23F9B64800B62B61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD3C92B623F9B6AB00B62B61 /* FinancialState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialState.swift; sourceTree = "<group>"; };
 		BD3C92BB23F9B75500B62B61 /* Frequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frequency.swift; sourceTree = "<group>"; };
-		BD3C92C623FABBD600B62B61 /* FinancialStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialStateView.swift; sourceTree = "<group>"; };
+		BD3C92C623FABBD600B62B61 /* LongRangeForecastsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongRangeForecastsView.swift; sourceTree = "<group>"; };
 		BD44D7B9252C0D350051FBD3 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
 		BD44D7BE252CA0400051FBD3 /* RBDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBDateFormatter.swift; sourceTree = "<group>"; };
 		BD44D7C4252CA04C0051FBD3 /* RBMoneyFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBMoneyFormatters.swift; sourceTree = "<group>"; };
@@ -92,6 +96,15 @@
 			path = Prediction;
 			sourceTree = "<group>";
 		};
+		BD21B1B3253027A9003E2AA2 /* CurrentState */ = {
+			isa = PBXGroup;
+			children = (
+				BD21B1B4253027C1003E2AA2 /* CurrentStateView.swift */,
+				BD21B1BA25302853003E2AA2 /* EventsList.swift */,
+			);
+			path = CurrentState;
+			sourceTree = "<group>";
+		};
 		BD3C928223F9B64700B62B61 = {
 			isa = PBXGroup;
 			children = (
@@ -114,13 +127,14 @@
 		BD3C928D23F9B64700B62B61 /* RealBudget */ = {
 			isa = PBXGroup;
 			children = (
+				BD21B1B3253027A9003E2AA2 /* CurrentState */,
 				BD21B1A025302158003E2AA2 /* Prediction */,
 				BD44D7CC252DFE600051FBD3 /* Data */,
 				BD44D7BD252CA0290051FBD3 /* Formatters */,
 				BDA6F1BD240384890080BA7D /* EventDetail */,
 				BDD27DCE24032B640072F7D4 /* CloudKit */,
 				BDD27DC6240328D10072F7D4 /* RealBudget.entitlements */,
-				BD3C92B523F9B68B00B62B61 /* FinancialState */,
+				BD3C92B523F9B68B00B62B61 /* LongRangeForecasts */,
 				BD3C92B423F9B67500B62B61 /* FinancialEvent */,
 				BD3C92B323F9B65F00B62B61 /* AppLevel */,
 				BD3C929723F9B64800B62B61 /* Assets.xcassets */,
@@ -167,13 +181,13 @@
 			path = FinancialEvent;
 			sourceTree = "<group>";
 		};
-		BD3C92B523F9B68B00B62B61 /* FinancialState */ = {
+		BD3C92B523F9B68B00B62B61 /* LongRangeForecasts */ = {
 			isa = PBXGroup;
 			children = (
-				BD3C92C623FABBD600B62B61 /* FinancialStateView.swift */,
+				BD3C92C623FABBD600B62B61 /* LongRangeForecastsView.swift */,
 				BD44D7B9252C0D350051FBD3 /* ForecastView.swift */,
 			);
-			path = FinancialState;
+			path = LongRangeForecasts;
 			sourceTree = "<group>";
 		};
 		BD44D7BD252CA0290051FBD3 /* Formatters */ = {
@@ -322,14 +336,16 @@
 				BD3C928F23F9B64700B62B61 /* AppMain.swift in Sources */,
 				BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */,
 				BD21B1AC25302593003E2AA2 /* Forecast.swift in Sources */,
-				BD3C92C723FABBD600B62B61 /* FinancialStateView.swift in Sources */,
+				BD3C92C723FABBD600B62B61 /* LongRangeForecastsView.swift in Sources */,
 				BD44D7CF252DFE9A0051FBD3 /* FinancialState.xcdatamodeld in Sources */,
 				BD3C929623F9B64700B62B61 /* ContentView.swift in Sources */,
 				BD44D7BA252C0D350051FBD3 /* ForecastView.swift in Sources */,
 				BDD27DCB2403291B0072F7D4 /* FinancialEvent.swift in Sources */,
+				BD21B1B5253027C1003E2AA2 /* CurrentStateView.swift in Sources */,
 				BD3C92B723F9B6AB00B62B61 /* FinancialState.swift in Sources */,
 				BD44D7BF252CA0400051FBD3 /* RBDateFormatter.swift in Sources */,
 				BD21B1A225302167003E2AA2 /* PredictionEngine.swift in Sources */,
+				BD21B1BB25302853003E2AA2 /* EventsList.swift in Sources */,
 				BD3C92BC23F9B75500B62B61 /* Frequency.swift in Sources */,
 				BDA6F1BF2403849C0080BA7D /* FinancialEventDetailView.swift in Sources */,
 				BD38349F241DD43F000E8C7C /* KeyboardNotifier.swift in Sources */,
