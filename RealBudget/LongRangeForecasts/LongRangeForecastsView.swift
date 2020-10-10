@@ -9,8 +9,24 @@
 import SwiftUI
 
 struct LongRangeForecastsView: View {
-    @ObservedObject var resource = FinancialStateResource.shared
+    @Environment(\.managedObjectContext) var managedObjectContext
     @State var isEditing = false
+    
+    @FetchRequest(
+        entity: RBState.entity(),
+        sortDescriptors: []
+    ) var state: FetchedResults<RBState>
+    
+    @FetchRequest(
+        entity: RBEvent.entity(),
+        sortDescriptors: []
+    ) var events: FetchedResults<RBEvent>
+    
+    @State var localState: FinancialState?
+    
+    init() {
+//        print("state \(state)")
+    }
     
     var sampleData: [Forecast] {
         var sample = [Forecast]()
@@ -41,12 +57,12 @@ struct LongRangeForecastsView: View {
                     }
                 }
                 LongRangeBottomView(
-                    state: resource.state,
+                    balance: Int(state.first?.actualBalance ?? 0),
                     isEditing: $isEditing
                 ).background(Color(red: 0.77, green: 0.87, blue: 0.96))
                 .cornerRadius(5)
                 .sheet(isPresented: $isEditing) {
-                    CurrentStateView()
+                    CurrentStateView().environment(\.managedObjectContext, managedObjectContext)
                 }
             }
         }

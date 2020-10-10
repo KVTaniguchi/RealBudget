@@ -25,7 +25,6 @@
 		BD44D7BF252CA0400051FBD3 /* RBDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7BE252CA0400051FBD3 /* RBDateFormatter.swift */; };
 		BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7C4252CA04C0051FBD3 /* RBMoneyFormatters.swift */; };
 		BD44D7CF252DFE9A0051FBD3 /* FinancialState.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */; };
-		BDA42D2B2530955E0070B910 /* FinancialStateResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA42D2A2530955E0070B910 /* FinancialStateResource.swift */; };
 		BDA42D2F253152E20070B910 /* LongRangeBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA42D2E253152E20070B910 /* LongRangeBottomView.swift */; };
 		BDA6F1BF2403849C0080BA7D /* FinancialEventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */; };
 		BDD27DC9240328E00072F7D4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD27DC8240328E00072F7D4 /* CloudKit.framework */; };
@@ -65,7 +64,6 @@
 		BD44D7BE252CA0400051FBD3 /* RBDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBDateFormatter.swift; sourceTree = "<group>"; };
 		BD44D7C4252CA04C0051FBD3 /* RBMoneyFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBMoneyFormatters.swift; sourceTree = "<group>"; };
 		BD44D7CE252DFE9A0051FBD3 /* FinancialState.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinancialState.xcdatamodel; sourceTree = "<group>"; };
-		BDA42D2A2530955E0070B910 /* FinancialStateResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialStateResource.swift; sourceTree = "<group>"; };
 		BDA42D2E253152E20070B910 /* LongRangeBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongRangeBottomView.swift; sourceTree = "<group>"; };
 		BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialEventDetailView.swift; sourceTree = "<group>"; };
 		BDD27DC6240328D10072F7D4 /* RealBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RealBudget.entitlements; sourceTree = "<group>"; };
@@ -209,7 +207,6 @@
 				BD3C92B623F9B6AB00B62B61 /* FinancialState.swift */,
 				BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */,
 				BD21B1AB25302593003E2AA2 /* Forecast.swift */,
-				BDA42D2A2530955E0070B910 /* FinancialStateResource.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -332,7 +329,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD3C928F23F9B64700B62B61 /* AppMain.swift in Sources */,
-				BDA42D2B2530955E0070B910 /* FinancialStateResource.swift in Sources */,
 				BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */,
 				BD21B1AC25302593003E2AA2 /* Forecast.swift in Sources */,
 				BD3C92C723FABBD600B62B61 /* LongRangeForecastsView.swift in Sources */,

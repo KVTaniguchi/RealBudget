@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     var body: some View {
-        LongRangeForecastsView()
+        LongRangeForecastsView().environment(\.managedObjectContext, managedObjectContext)
     }
 }
 

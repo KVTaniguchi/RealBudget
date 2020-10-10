@@ -9,24 +9,22 @@
 import SwiftUI
 
 struct LongRangeBottomView: View {
-    var state: FinancialState
     @Binding var isEditing: Bool
     
     private var balanceString: String
     
-    init(state: FinancialState, isEditing: Binding<Bool>) {
-        self.state = state
-        if state.actualBalance == 0 {
+    init(balance: Int, isEditing: Binding<Bool>) {
+        if balance == 0 {
             balanceString = "-----"
         } else {
-            balanceString = "$\(state.actualBalance)"
+            balanceString = "$\(balance)"
         }
         _isEditing = isEditing
     }
     
     var body: some View {
         HStack {
-            Text("$\(state.actualBalance)").padding(.trailing, 60)
+            Text("\(balanceString)").padding(.trailing, 60)
             Button("Edit") {
                 isEditing.toggle()
             }.padding(.leading, 60)

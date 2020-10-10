@@ -9,9 +9,20 @@
 import SwiftUI
 
 struct CurrentStateView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
     @State var isEditing = false
-    @State var balance = 0
+    @State var balance: Int = 0
     @State var showingEvent = false
+    
+    @FetchRequest(
+        entity: RBState.entity(),
+        sortDescriptors: []
+    ) var state: FetchedResults<RBState>
+    
+    @FetchRequest(
+        entity: RBEvent.entity(),
+        sortDescriptors: []
+    ) var events: FetchedResults<RBEvent>
     
     var body: some View {
         List {
@@ -22,6 +33,14 @@ struct CurrentStateView: View {
                 MoneyEntryView(amount: $balance, isEditing: $isEditing)
                 if isEditing {
                     Button("Done") {
+                        guard balance > 0 else { return }
+                        if let state = state.first {
+                            state.actualBalance = Int32(balance)
+                        } else {
+                            let newState = RBState(context: managedObjectContext)
+                            newState.actualBalance = Int32(balance)
+                        }
+                        save()
                         isEditing.toggle()
                         hideKeyboard()
                     }.accentColor(Color.blue)
@@ -30,9 +49,11 @@ struct CurrentStateView: View {
             Section {
                 Button(action: {
                     self.showingEvent.toggle()
-                }) {
-                    Text("Add new")
-                }.sheet(isPresented: $showingEvent) {
+                }
+                ) {
+                    Text("Add new").foregroundColor(Color.blue)
+                }
+                .sheet(isPresented: $showingEvent) {
                     FinancialEventDetailView(event: nil)
                 }
             }.padding(.top, 60)
@@ -44,17 +65,22 @@ struct CurrentStateView: View {
         }
         .onDisappear {
             print("save \(balance)")
+            
         }
         // list
         // current balance field
         // expenses field -> nav link to expenses list
         // income field -> nav link to incomes list
     }
-}
-
-struct CurrentStateView_Previews: PreviewProvider {
-    static var previews: some View {
-        CurrentStateView()
+    
+    func save() {
+        if managedObjectContext.hasChanges {
+            do {
+                try? managedObjectContext.save()
+            } catch {
+                print(error)
+            }
+        }
     }
 }
 
