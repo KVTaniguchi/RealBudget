@@ -9,11 +9,8 @@
 import SwiftUI
 
 struct LongRangeForecastsView: View {
-    @State var sectionState: [FinancialEventType: Bool] = [:]
-    @State var incomeSectionState: [Int: Bool] = [:]
-    @State var expenseSectionState: [Int: Bool] = [:]
-    @State var balanceText: String = ""
-    @State var isShowingNewEvent = false
+    @ObservedObject var resource = FinancialStateResource.shared
+    @State var isEditing = false
     
     var sampleData: [Forecast] {
         var sample = [Forecast]()
@@ -42,6 +39,14 @@ struct LongRangeForecastsView: View {
                             ForecastView(forecast: data).frame(maxWidth: g.size.width)
                         }
                     }
+                }
+                LongRangeBottomView(
+                    state: resource.state,
+                    isEditing: $isEditing
+                ).background(Color(red: 0.77, green: 0.87, blue: 0.96))
+                .cornerRadius(5)
+                .sheet(isPresented: $isEditing) {
+                    CurrentStateView()
                 }
             }
         }

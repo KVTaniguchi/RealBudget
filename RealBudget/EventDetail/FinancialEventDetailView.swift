@@ -49,7 +49,15 @@ struct FinancialEventDetailView: View {
         if let event = event {
             _scratchModel = State(initialValue: event)
         } else {
-            let event = FinancialEvent(id: UUID().uuidString, type: .expense, name: "", value: 0, frequency: .weekly, startDate: Date(), endDate: nil, amountString: "")
+            let event = FinancialEvent(
+                id: ObjectIdentifier(NSNumber(1)),
+                type: .expense,
+                name: "",
+                value: 0,
+                frequency: .weekly,
+                startDate: Date(),
+                endDate: nil
+            )
             _scratchModel = State(initialValue: event)
         }
     }

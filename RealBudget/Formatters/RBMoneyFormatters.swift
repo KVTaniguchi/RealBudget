@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+final class RBMoneyFormatter {
+    static let shared = RBMoneyFormatter()
+    
+    let formatter: NumberFormatter
+    
+    init() {
+        formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+    }
+}

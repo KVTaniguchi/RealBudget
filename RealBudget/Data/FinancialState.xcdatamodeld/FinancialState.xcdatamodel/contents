@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="20A5374i" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="Junk" representedClassName="Junk" syncable="YES" codeGenerationType="class"/>
+    <entity name="RBEvent" representedClassName="RBEvent" syncable="YES" codeGenerationType="class">
+        <attribute name="change" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="frequency" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="RBFrequency" representedClassName="RBFrequency" syncable="YES" codeGenerationType="class">
+        <attribute name="rawValue" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="RBState" representedClassName="RBState" syncable="YES" codeGenerationType="class">
+        <attribute name="actualBalance" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="RBType" representedClassName="RBType" syncable="YES" codeGenerationType="class">
+        <attribute name="rawValue" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Junk" positionX="-36" positionY="9" width="128" height="29"/>
+        <element name="RBEvent" positionX="-54" positionY="-9" width="128" height="14"/>
+        <element name="RBFrequency" positionX="-18" positionY="27" width="128" height="44"/>
+        <element name="RBState" positionX="-63" positionY="-18" width="128" height="14"/>
+        <element name="RBType" positionX="-36" positionY="9" width="128" height="44"/>
+    </elements>
 </model>

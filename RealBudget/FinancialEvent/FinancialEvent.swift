@@ -9,19 +9,18 @@
 import Foundation
 
 struct FinancialEvent: Identifiable {
-    var id: String
+    var id: ObjectIdentifier
     var type: FinancialEventType
     var name: String
     var value: Int
     var frequency: Frequency
     var startDate: Date
     var endDate: Date?
-    var amountString: String = ""
     
     var displayValue: String {
         set { }
         get {
-            "$\(amountString)"
+            "$\(value)"
         }
     }
 }

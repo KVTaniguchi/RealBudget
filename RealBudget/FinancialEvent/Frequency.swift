@@ -8,24 +8,11 @@
 
 import Foundation
 
-enum Frequency: CaseIterable {
-    case weekly
-    case biweekly
-    case monthly
-    case annually
-    
-    var index: Int {
-        switch self {
-        case .weekly:
-            return 2
-        case .biweekly:
-            return 3
-        case .monthly:
-            return 4
-        case .annually:
-            return 5
-        }
-    }
+enum Frequency: Int {
+    case weekly = 0
+    case biweekly = 1
+    case monthly = 2
+    case annually = 3
     
     var title: String {
         switch self {
