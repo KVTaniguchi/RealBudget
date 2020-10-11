@@ -33,12 +33,15 @@ struct CurrentStateView: View {
     }
     
     var body: some View {
-        List {
+        Form {
             Text("Edit your balance, income, and expenses")
-            .padding(.top, 60)
             .font(.title)
             Section {
-                MoneyEntryView(amount: $balance, isEditing: $isEditing, existingBalance: Int(state.first?.actualBalance ?? 0))
+                MoneyEntryView(
+                    amount: $balance,
+                    isEditing: $isEditing,
+                    existingBalance: Int(state.first?.actualBalance ?? 0)
+                )
                 if isEditing {
                     Button("Done") {
                         guard balance > 0 else { return }
@@ -48,12 +51,12 @@ struct CurrentStateView: View {
                             let newState = RBState(context: managedObjectContext)
                             newState.actualBalance = Int32(balance)
                         }
-                        save()
-                        isEditing.toggle()
                         hideKeyboard()
+                        save()
+                        isEditing = false
                     }.accentColor(Color.blue)
                 }
-            }.padding(.top, 40)
+            }
             Section {
                 Button(action: {
                     self.showingEvent.toggle()
@@ -64,7 +67,7 @@ struct CurrentStateView: View {
                 .sheet(isPresented: $showingEvent) {
                     FinancialEventDetailView(event: nil).environment(\.managedObjectContext, managedObjectContext)
                 }
-            }.padding(.top, 60)
+            }
             Section {
                 Text("Expenses")
                 ForEach(expenses) { expense in
@@ -78,6 +81,7 @@ struct CurrentStateView: View {
                         FinancialEventDetailView(event: expense).environment(\.managedObjectContext, managedObjectContext)
                     }
                 }
+                Text("Income")
                 ForEach(income) { income in
                     Button(action: {
                         self.showingEvent.toggle()
@@ -92,10 +96,6 @@ struct CurrentStateView: View {
             }
             
         }
-        // list
-        // current balance field
-        // expenses field -> nav link to expenses list
-        // income field -> nav link to incomes list
     }
     
     func save() {
