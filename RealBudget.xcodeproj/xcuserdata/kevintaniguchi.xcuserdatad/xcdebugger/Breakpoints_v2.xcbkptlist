@@ -7,48 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4D601526-39E3-496D-8668-11DB1A767DC4"
+            uuid = "0E1185E2-71C4-405B-87F6-BC4EE34B7E70"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RealBudget/Data/FinancialStateResource.swift"
+            filePath = "RealBudget/EventDetail/FinancialEventDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "save()"
-            landmarkType = "7">
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "62E8A518-9D72-4B17-90C0-1C045413C2F7"
+            uuid = "B567297A-7ED9-4A48-B3C0-319968987E7E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RealBudget/Data/FinancialStateResource.swift"
+            filePath = "RealBudget/EventDetail/FinancialEventDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "makeNewBalance(_:)"
-            landmarkType = "7">
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "65D98F7D-258D-4BA0-85EC-020749D682FC"
+            uuid = "A414C97F-24AD-49AB-8160-3F739D7FEB8A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RealBudget/Data/FinancialStateResource.swift"
+            filePath = "RealBudget/EventDetail/FinancialEventDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "save()"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "init(event:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

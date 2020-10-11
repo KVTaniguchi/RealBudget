@@ -16,7 +16,8 @@ struct ForecastView: View {
         HStack() {
             Spacer()
             Text("\(RBDateFormatter.shared.formatter.string(from: forecast.date))")
-            CenterLineEyeView(isCurrentWeek: forecast.isCurrentWeek).alignmentGuide(.centerLine) { d in d[VerticalAlignment.center] }
+            CenterLineEyeView(isCurrentWeek: forecast.isCurrentWeek)
+            .alignmentGuide(.centerLine) { d in d[VerticalAlignment.center] }
             Text("100")
             Spacer()
         }

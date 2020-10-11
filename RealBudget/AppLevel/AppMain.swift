@@ -17,7 +17,6 @@ struct ReadBudget: App {
     init() {
         container = NSPersistentContainer(name: "FinancialState")
         container.loadPersistentStores { (description, error) in
-            print(description)
             if let error = error {
                 print(error)
             }

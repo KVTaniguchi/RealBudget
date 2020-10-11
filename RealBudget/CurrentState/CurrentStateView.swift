@@ -24,13 +24,24 @@ struct CurrentStateView: View {
         sortDescriptors: []
     ) var events: FetchedResults<RBEvent>
     
+    var income: [RBEvent] {
+        events.filter { $0.type == 0 }
+    }
+    
+    var expenses: [RBEvent] {
+        for event in events {
+            print("\(event.name) \(event.type) \(event.change)")
+        }
+        return events.filter { $0.type == 1}
+    }
+    
     var body: some View {
         List {
             Text("Edit your balance, income, and expenses")
             .padding(.top, 60)
             .font(.title)
             Section {
-                MoneyEntryView(amount: $balance, isEditing: $isEditing)
+                MoneyEntryView(amount: $balance, isEditing: $isEditing, existingBalance: Int(state.first?.actualBalance ?? 0))
                 if isEditing {
                     Button("Done") {
                         guard balance > 0 else { return }
@@ -54,12 +65,33 @@ struct CurrentStateView: View {
                     Text("Add new").foregroundColor(Color.blue)
                 }
                 .sheet(isPresented: $showingEvent) {
-                    FinancialEventDetailView(event: nil)
+                    FinancialEventDetailView(event: nil).environment(\.managedObjectContext, managedObjectContext)
                 }
             }.padding(.top, 60)
             Section {
                 Text("Expenses")
-                Text("Income")
+                ForEach(expenses) { expense in
+                    Button(action: {
+                        self.showingEvent.toggle()
+                    }
+                    ) {
+                        Text("\(expense.name ?? "No name") $\(expense.change)")
+                    }
+                    .sheet(isPresented: $showingEvent) {
+                        FinancialEventDetailView(event: expense).environment(\.managedObjectContext, managedObjectContext)
+                    }
+                }
+                ForEach(income) { income in
+                    Button(action: {
+                        self.showingEvent.toggle()
+                    }
+                    ) {
+                        Text("\(income.name ?? "No name") $\(income.change)")
+                    }
+                    .sheet(isPresented: $showingEvent) {
+                        FinancialEventDetailView(event: income).environment(\.managedObjectContext, managedObjectContext)
+                    }
+                }
             }
             
         }
@@ -76,7 +108,7 @@ struct CurrentStateView: View {
     func save() {
         if managedObjectContext.hasChanges {
             do {
-                try? managedObjectContext.save()
+                _ = try managedObjectContext.save()
             } catch {
                 print(error)
             }
@@ -87,10 +119,11 @@ struct CurrentStateView: View {
 struct MoneyEntryView: View {
     @Binding var amount: Int
     @Binding var isEditing: Bool
+    var existingBalance: Int?
 
     var amountProxy: Binding<String> {
         Binding<String>(
-            get: { self.string(from: self.amount) },
+            get: { self.string(from: existingBalance ?? self.amount) },
             set: {
                 if let value = RBMoneyFormatter.shared.formatter.number(from: $0) {
                     self.amount = value.intValue

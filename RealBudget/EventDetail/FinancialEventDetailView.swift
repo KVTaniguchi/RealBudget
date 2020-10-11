@@ -17,37 +17,35 @@ extension NumberFormatter {
 }
 
 struct FinancialEventDetailView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
     @State private var isSaving = false
     @State private var shouldDisableSave: Bool = false
     @State private var scratchModel: FinancialEvent
     @State private var valueText: String = ""
+    @State private var startDate: Date
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     static let formatter: NumberFormatter = {
        NumberFormatter()
     }()
     
-    private func string(from value: Int?) -> String {
-        guard
-            let value = value,
-            let s = NumberFormatter.currency.string(from: NSNumber(value: value)) else { return "" }
-        return s
-    }
+    private var event: RBEvent?
     
-    var amountProxy: Binding<String> {
-        Binding<String>(
-            get: { self.string(from: self.scratchModel.value) },
-            set: {
-                if let value = FinancialEventDetailView.formatter.number(from: $0) {
-                    self.scratchModel.value = value.intValue
-                }
-            }
-        )
-    }
-    
-    init(event: FinancialEvent?) {
+    init(event: RBEvent?) {
         if let event = event {
-            _scratchModel = State(initialValue: event)
+            self.event = event
+            let type = FinancialEventType(rawValue: Int(event.type)) ?? .expense
+            let frequency = Frequency(rawValue: Int(event.frequency)) ?? .monthly
+            let existingEvent = FinancialEvent(
+                id: event.id,
+                type: type,
+                name: event.name ?? "No name",
+                value: Int(event.change),
+                frequency: frequency,
+                startDate: event.startDate ?? Date(),
+                endDate: event.endDate)
+            _scratchModel = State(initialValue: existingEvent)
+            _startDate = State(initialValue: event.startDate ?? Date())
         } else {
             let event = FinancialEvent(
                 id: ObjectIdentifier(NSNumber(1)),
@@ -59,6 +57,7 @@ struct FinancialEventDetailView: View {
                 endDate: nil
             )
             _scratchModel = State(initialValue: event)
+            _startDate = State(initialValue: Date())
         }
     }
     
@@ -70,8 +69,23 @@ struct FinancialEventDetailView: View {
                 }.padding(.leading, 20)
                 Spacer()
                 Button("Save") {
-                    print("saved pressed")
-                    print(self.$scratchModel)
+                    if let event = event {
+                        event.setValue(Int16(scratchModel.value), forKey: "change")
+                        event.setValue(startDate, forKey: "startDate")
+                        event.setValue(Int16(scratchModel.frequency.rawValue), forKey: "frequency")
+                        event.setValue(Int16(scratchModel.type.rawValue), forKey: "type")
+                        event.setValue(scratchModel.name, forKey: "name")
+                    } else {
+                        // todo error handling
+                        let newEvent = RBEvent(context: managedObjectContext)
+                        newEvent.name = scratchModel.name
+                        newEvent.change = Int16(scratchModel.value)
+                        newEvent.startDate = startDate
+                        newEvent.frequency = Int16(scratchModel.frequency.rawValue)
+                        newEvent.type = Int16(scratchModel.type.rawValue)
+                    }
+                    
+                    save()
                 }.padding(.trailing, 20)
             }.padding(.bottom, 20)
             Text("Financial event")
@@ -98,9 +112,57 @@ struct FinancialEventDetailView: View {
                         }
                         .pickerStyle(SegmentedPickerStyle())
                     }
+                    Section {
+                        DatePicker(
+                            selection: $startDate,
+                            in: Date()...,
+                            displayedComponents: .date
+                        ) {
+                            Text("Select a start date")
+                        }
+                        Text("Start date is \(startDate, formatter: RBDateFormatter.shared.formatter)")
+                    }
+                    Group {
+                        if let event = event {
+                            Section {
+                                Button("Delete") {
+                                    managedObjectContext.delete(event)
+                                    save()
+                                }.accentColor(.red)
+                            }
+                        }
+                    }
                 }
             }
             .modifier(KeyboardHeightModifier())
         }.padding(.top, 40)
+    }
+    
+    private func save() {
+        if managedObjectContext.hasChanges {
+            do {
+                try managedObjectContext.save()
+                self.presentationMode.wrappedValue.dismiss()
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    private func string(from value: Int?) -> String {
+        guard
+            let value = value else { return "" }
+        return "\(value)"
+    }
+    
+    var amountProxy: Binding<String> {
+        Binding<String>(
+            get: { self.string(from: self.scratchModel.value) },
+            set: {
+                if let value = FinancialEventDetailView.formatter.number(from: $0) {
+                    self.scratchModel.value = value.intValue
+                }
+            }
+        )
     }
 }
