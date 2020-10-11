@@ -29,9 +29,6 @@ struct CurrentStateView: View {
     }
     
     var expenses: [RBEvent] {
-        for event in events {
-            print("\(event.name) \(event.type) \(event.change)")
-        }
         return events.filter { $0.type == 1}
     }
     
@@ -93,10 +90,6 @@ struct CurrentStateView: View {
                     }
                 }
             }
-            
-        }
-        .onDisappear {
-            print("save \(balance)")
             
         }
         // list
