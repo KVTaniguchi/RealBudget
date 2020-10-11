@@ -102,7 +102,7 @@ struct FinancialEventDetailView: View {
                         }
                         .pickerStyle(SegmentedPickerStyle())
                         
-                        TextField("Amount", text: amountProxy).keyboardType(.decimalPad)
+                        TextField("Amount ($)", text: amountProxy).keyboardType(.decimalPad)
                         
                         Picker("Frequency", selection: $scratchModel.frequency) {
                             Text("Weekly").tag(Frequency.weekly)
@@ -151,7 +151,7 @@ struct FinancialEventDetailView: View {
     
     private func string(from value: Int?) -> String {
         guard
-            let value = value else { return "" }
+            let value = value else { return "---" }
         return "\(value)"
     }
     

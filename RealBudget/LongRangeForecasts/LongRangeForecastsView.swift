@@ -84,7 +84,7 @@ struct LongRangeForecastsView: View {
                 LongRangeBottomView(
                     balance: Int(state.first?.actualBalance ?? 0),
                     isEditing: $isEditing
-                ).background(Color(red: 0.77, green: 0.87, blue: 0.96))
+                ).background(Color(red: 0.99, green: 0.80, blue: 0.00))
                 .cornerRadius(5)
                 .sheet(isPresented: $isEditing) {
                     CurrentStateView().environment(\.managedObjectContext, managedObjectContext)

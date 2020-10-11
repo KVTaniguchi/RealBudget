@@ -24,7 +24,7 @@ struct LongRangeBottomView: View {
     
     var body: some View {
         HStack {
-            Text("\(balanceString)").padding(.trailing, 60)
+            Text("\(balanceString)").padding(.trailing, 60).foregroundColor(.black)
             Button("Edit") {
                 isEditing.toggle()
             }.padding(.leading, 60)

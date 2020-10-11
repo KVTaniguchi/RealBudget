@@ -138,7 +138,7 @@ struct MoneyEntryView: View {
 
     // I had multiple fields on this page so extracted this into a function...
     private func string(from value: Int) -> String {
-        "$\(value)"
+        "\(value)"
     }
 }
 
