@@ -24,10 +24,6 @@ struct LongRangeForecastsView: View {
     
     @State var localState: FinancialState?
     
-    init() {
-//        print("state \(state)")
-    }
-    
     var sampleData: [Forecast] {
         var sample = [Forecast]()
         
@@ -45,13 +41,42 @@ struct LongRangeForecastsView: View {
         return sample
     }
     
+    var data: [Forecast] {
+        var data: [Forecast] = []
+        
+        let actualBalance = Int(state.first?.actualBalance ?? 0)
+        let financialEvents = events.map {
+            FinancialEvent(
+                id: $0.id,
+                type: FinancialEventType(rawValue: Int($0.type)) ?? .expense,
+                name: $0.name ?? "no name",
+                value: Int($0.change),
+                frequency: Frequency(rawValue: Int($0.frequency)) ?? .monthly,
+                startDate: $0.startDate ?? Date(),
+                endDate: $0.endDate
+            )
+        }
+        let state = FinancialState(actualBalance: actualBalance, events: financialEvents)
+        let predictions = PredictionEngine.shared.predict(state: state)
+        
+        let sortedDates = predictions.keys.sorted()
+        
+        for date in sortedDates {
+            if let forecast = predictions[date] {
+                data.append(forecast)
+            }
+        }
+        
+        return data
+    }
+    
     var body: some View {
         // edit button in nav view , toggles to save when active
         GeometryReader { g in
             VStack {
                 ScrollView {
                     VStack(alignment: .centerLine, spacing: 0) {
-                        ForEach(sampleData) { data in
+                        ForEach(data) { data in
                             ForecastView(forecast: data).frame(maxWidth: g.size.width)
                         }
                     }
