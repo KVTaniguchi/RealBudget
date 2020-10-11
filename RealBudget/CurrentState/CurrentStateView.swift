@@ -14,6 +14,11 @@ struct CurrentStateView: View {
     @State var balance: Int = 0
     @State var showingEvent = false
     
+    private var existingBalance: Int? {
+        guard let existingBalance = state.first?.actualBalance else { return nil }
+        return Int(existingBalance)
+    }
+    
     @FetchRequest(
         entity: RBState.entity(),
         sortDescriptors: []
@@ -40,10 +45,11 @@ struct CurrentStateView: View {
                 MoneyEntryView(
                     amount: $balance,
                     isEditing: $isEditing,
-                    existingBalance: Int(state.first?.actualBalance ?? 0)
+                    existingBalance: existingBalance
                 )
                 if isEditing {
                     Button("Done") {
+                        hideKeyboard()
                         guard balance > 0 else { return }
                         if let state = state.first {
                             state.actualBalance = Int32(balance)
@@ -51,7 +57,7 @@ struct CurrentStateView: View {
                             let newState = RBState(context: managedObjectContext)
                             newState.actualBalance = Int32(balance)
                         }
-                        hideKeyboard()
+                        
                         save()
                         isEditing = false
                     }.accentColor(Color.blue)
@@ -112,15 +118,20 @@ struct CurrentStateView: View {
 struct MoneyEntryView: View {
     @Binding var amount: Int
     @Binding var isEditing: Bool
-    var existingBalance: Int?
+    @State var existingBalance: Int?
 
     var amountProxy: Binding<String> {
         Binding<String>(
             get: { self.string(from: existingBalance ?? self.amount) },
             set: {
-                if let value = RBMoneyFormatter.shared.formatter.number(from: $0) {
-                    self.amount = value.intValue
-                }
+                self.existingBalance = Int($0)
+                self.amount = Int($0) ?? 0
+//                if let value = RBMoneyFormatter.shared.formatter.number(from: $0) {
+//                    self.existingBalance = value.intValue
+//                    self.amount = value.intValue
+//                } else {
+//                    print("fail")
+//                }
             }
         )
     }
@@ -138,7 +149,7 @@ struct MoneyEntryView: View {
 
     // I had multiple fields on this page so extracted this into a function...
     private func string(from value: Int) -> String {
-        "\(value)"
+        return "\(value)"
     }
 }
 
