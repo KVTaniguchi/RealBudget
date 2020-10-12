@@ -25,6 +25,7 @@
 		BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7C4252CA04C0051FBD3 /* RBMoneyFormatters.swift */; };
 		BD44D7CF252DFE9A0051FBD3 /* FinancialState.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */; };
 		BD53B7FB2533FD3000E58DBF /* RealBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD53B7FA2533FD3000E58DBF /* RealBudgetUITests.swift */; };
+		BD53B8062533FE3100E58DBF /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD53B8052533FE3100E58DBF /* SnapshotHelper.swift */; };
 		BDA42D2F253152E20070B910 /* LongRangeBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA42D2E253152E20070B910 /* LongRangeBottomView.swift */; };
 		BDA6F1BF2403849C0080BA7D /* FinancialEventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */; };
 		BDD27DC9240328E00072F7D4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD27DC8240328E00072F7D4 /* CloudKit.framework */; };
@@ -73,6 +74,7 @@
 		BD53B7F82533FD3000E58DBF /* RealBudgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealBudgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD53B7FA2533FD3000E58DBF /* RealBudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealBudgetUITests.swift; sourceTree = "<group>"; };
 		BD53B7FC2533FD3000E58DBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD53B8052533FE3100E58DBF /* SnapshotHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		BDA42D2E253152E20070B910 /* LongRangeBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongRangeBottomView.swift; sourceTree = "<group>"; };
 		BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialEventDetailView.swift; sourceTree = "<group>"; };
 		BDD27DC6240328D10072F7D4 /* RealBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RealBudget.entitlements; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				BD53B7FA2533FD3000E58DBF /* RealBudgetUITests.swift */,
+				BD53B8052533FE3100E58DBF /* SnapshotHelper.swift */,
 				BD53B7FC2533FD3000E58DBF /* Info.plist */,
 			);
 			path = RealBudgetUITests;
@@ -415,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD53B8062533FE3100E58DBF /* SnapshotHelper.swift in Sources */,
 				BD53B7FB2533FD3000E58DBF /* RealBudgetUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

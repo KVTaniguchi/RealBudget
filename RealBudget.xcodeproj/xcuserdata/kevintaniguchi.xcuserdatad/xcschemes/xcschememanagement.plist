@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>RealBudgetUITests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>BD3C928A23F9B64700B62B61</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BD3C92A323F9B64800B62B61</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BD53B7F72533FD3000E58DBF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>
