@@ -24,6 +24,7 @@
 		BD44D7BF252CA0400051FBD3 /* RBDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7BE252CA0400051FBD3 /* RBDateFormatter.swift */; };
 		BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7C4252CA04C0051FBD3 /* RBMoneyFormatters.swift */; };
 		BD44D7CF252DFE9A0051FBD3 /* FinancialState.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */; };
+		BD53B7FB2533FD3000E58DBF /* RealBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD53B7FA2533FD3000E58DBF /* RealBudgetUITests.swift */; };
 		BDA42D2F253152E20070B910 /* LongRangeBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA42D2E253152E20070B910 /* LongRangeBottomView.swift */; };
 		BDA6F1BF2403849C0080BA7D /* FinancialEventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */; };
 		BDD27DC9240328E00072F7D4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD27DC8240328E00072F7D4 /* CloudKit.framework */; };
@@ -32,6 +33,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		BD3C92A523F9B64800B62B61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3C928323F9B64700B62B61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD3C928A23F9B64700B62B61;
+			remoteInfo = RealBudget;
+		};
+		BD53B7FD2533FD3000E58DBF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BD3C928323F9B64700B62B61 /* Project object */;
 			proxyType = 1;
@@ -62,6 +70,9 @@
 		BD44D7BE252CA0400051FBD3 /* RBDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBDateFormatter.swift; sourceTree = "<group>"; };
 		BD44D7C4252CA04C0051FBD3 /* RBMoneyFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBMoneyFormatters.swift; sourceTree = "<group>"; };
 		BD44D7CE252DFE9A0051FBD3 /* FinancialState.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinancialState.xcdatamodel; sourceTree = "<group>"; };
+		BD53B7F82533FD3000E58DBF /* RealBudgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealBudgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD53B7FA2533FD3000E58DBF /* RealBudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealBudgetUITests.swift; sourceTree = "<group>"; };
+		BD53B7FC2533FD3000E58DBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDA42D2E253152E20070B910 /* LongRangeBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongRangeBottomView.swift; sourceTree = "<group>"; };
 		BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialEventDetailView.swift; sourceTree = "<group>"; };
 		BDD27DC6240328D10072F7D4 /* RealBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RealBudget.entitlements; sourceTree = "<group>"; };
@@ -79,6 +90,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BD3C92A123F9B64800B62B61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD53B7F52533FD3000E58DBF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -109,6 +127,7 @@
 			children = (
 				BD3C928D23F9B64700B62B61 /* RealBudget */,
 				BD3C92A723F9B64800B62B61 /* RealBudgetTests */,
+				BD53B7F92533FD3000E58DBF /* RealBudgetUITests */,
 				BD3C928C23F9B64700B62B61 /* Products */,
 				BDD27DC7240328E00072F7D4 /* Frameworks */,
 			);
@@ -119,6 +138,7 @@
 			children = (
 				BD3C928B23F9B64700B62B61 /* RealBudget.app */,
 				BD3C92A423F9B64800B62B61 /* RealBudgetTests.xctest */,
+				BD53B7F82533FD3000E58DBF /* RealBudgetUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,6 +228,15 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		BD53B7F92533FD3000E58DBF /* RealBudgetUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BD53B7FA2533FD3000E58DBF /* RealBudgetUITests.swift */,
+				BD53B7FC2533FD3000E58DBF /* Info.plist */,
+			);
+			path = RealBudgetUITests;
+			sourceTree = "<group>";
+		};
 		BDA6F1BD240384890080BA7D /* EventDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,13 +291,31 @@
 			productReference = BD3C92A423F9B64800B62B61 /* RealBudgetTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		BD53B7F72533FD3000E58DBF /* RealBudgetUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD53B7FF2533FD3000E58DBF /* Build configuration list for PBXNativeTarget "RealBudgetUITests" */;
+			buildPhases = (
+				BD53B7F42533FD3000E58DBF /* Sources */,
+				BD53B7F52533FD3000E58DBF /* Frameworks */,
+				BD53B7F62533FD3000E58DBF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD53B7FE2533FD3000E58DBF /* PBXTargetDependency */,
+			);
+			name = RealBudgetUITests;
+			productName = RealBudgetUITests;
+			productReference = BD53B7F82533FD3000E58DBF /* RealBudgetUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		BD3C928323F9B64700B62B61 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Kevin Taniguchi";
 				TargetAttributes = {
@@ -277,6 +324,10 @@
 					};
 					BD3C92A323F9B64800B62B61 = {
 						CreatedOnToolsVersion = 11.4;
+						TestTargetID = BD3C928A23F9B64700B62B61;
+					};
+					BD53B7F72533FD3000E58DBF = {
+						CreatedOnToolsVersion = 12.0.1;
 						TestTargetID = BD3C928A23F9B64700B62B61;
 					};
 				};
@@ -296,6 +347,7 @@
 			targets = (
 				BD3C928A23F9B64700B62B61 /* RealBudget */,
 				BD3C92A323F9B64800B62B61 /* RealBudgetTests */,
+				BD53B7F72533FD3000E58DBF /* RealBudgetUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -312,6 +364,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BD3C92A223F9B64800B62B61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD53B7F62533FD3000E58DBF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -352,6 +411,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BD53B7F42533FD3000E58DBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD53B7FB2533FD3000E58DBF /* RealBudgetUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -359,6 +426,11 @@
 			isa = PBXTargetDependency;
 			target = BD3C928A23F9B64700B62B61 /* RealBudget */;
 			targetProxy = BD3C92A523F9B64800B62B61 /* PBXContainerItemProxy */;
+		};
+		BD53B7FE2533FD3000E58DBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD3C928A23F9B64700B62B61 /* RealBudget */;
+			targetProxy = BD53B7FD2533FD3000E58DBF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -576,6 +648,44 @@
 			};
 			name = Release;
 		};
+		BD53B8002533FD3000E58DBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3B3FT42G96;
+				INFOPLIST_FILE = RealBudgetUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Taniguchi.RealBudgetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RealBudget;
+			};
+			name = Debug;
+		};
+		BD53B8012533FD3000E58DBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3B3FT42G96;
+				INFOPLIST_FILE = RealBudgetUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Taniguchi.RealBudgetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RealBudget;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -602,6 +712,15 @@
 			buildConfigurations = (
 				BD3C92B123F9B64800B62B61 /* Debug */,
 				BD3C92B223F9B64800B62B61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD53B7FF2533FD3000E58DBF /* Build configuration list for PBXNativeTarget "RealBudgetUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD53B8002533FD3000E58DBF /* Debug */,
+				BD53B8012533FD3000E58DBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
