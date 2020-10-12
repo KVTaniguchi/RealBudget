@@ -74,6 +74,14 @@ struct LongRangeForecastsView: View {
         // edit button in nav view , toggles to save when active
         GeometryReader { g in
             VStack {
+                if events.isEmpty {
+                    VStack {
+                        Text(introText).padding().multilineTextAlignment(.center)
+                        Button("Start adding data") {
+                            isEditing.toggle()
+                        }.padding()
+                    }
+                }
                 ScrollView {
                     VStack(alignment: .centerLine, spacing: 0) {
                         ForEach(data) { data in
@@ -91,6 +99,19 @@ struct LongRangeForecastsView: View {
                 }
             }
         }
+    }
+    
+    var introText: String {
+        """
+        Just starting?
+        Predict your budget by adding
+        your current balance and some
+        expense events like rent / mortgage
+        and income events such as paydays.
+        Then watch as the algorithmic magic of this
+        app predicts what your balance would be a week
+        at a time for the next 52 weeks.
+        """
     }
 }
 
