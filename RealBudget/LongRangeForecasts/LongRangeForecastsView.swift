@@ -11,6 +11,8 @@ import SwiftUI
 struct LongRangeForecastsView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var isEditing = false
+    @State var isShowingInfo = false
+    @State var currentModal: PresentedLongRangeModal? = nil
     
     @FetchRequest(
         entity: RBState.entity(),
@@ -73,29 +75,50 @@ struct LongRangeForecastsView: View {
     var body: some View {
         // edit button in nav view , toggles to save when active
         GeometryReader { g in
-            VStack {
-                if events.isEmpty {
-                    VStack {
-                        Text(introText).padding().multilineTextAlignment(.center)
-                        Button("Start adding data") {
-                            isEditing.toggle()
-                        }.padding()
+            ZStack {
+                VStack(alignment: .center) {
+                    if events.isEmpty {
+                        VStack {
+                            Text(introText).padding().multilineTextAlignment(.center)
+                            Button("Start adding data") {
+                                isEditing.toggle()
+                            }
+                            .padding()
+                        }
                     }
-                }
-                ScrollView {
-                    VStack(alignment: .centerLine, spacing: 0) {
-                        ForEach(data) { data in
-                            ForecastView(forecast: data).frame(maxWidth: g.size.width)
+                    ScrollView {
+                        VStack(alignment: .centerLine, spacing: 0) {
+                            ForEach(data) { data in
+                                ForecastView(forecast: data).frame(maxWidth: g.size.width)
+                            }
+                        }
+                    }
+                    LongRangeBottomView(
+                        balance: Int(state.first?.actualBalance ?? 0),
+                        isEditing: $isEditing,
+                        currentModal: $currentModal
+                    ).background(Color(red: 0.99, green: 0.80, blue: 0.00))
+                    .cornerRadius(5)
+                    .sheet(item: $currentModal) {  item in
+                        switch item {
+                        case .about:
+                            AboutView()
+                        case .currentState:
+                            CurrentStateView().environment(\.managedObjectContext, managedObjectContext)
                         }
                     }
                 }
-                LongRangeBottomView(
-                    balance: Int(state.first?.actualBalance ?? 0),
-                    isEditing: $isEditing
-                ).background(Color(red: 0.99, green: 0.80, blue: 0.00))
-                .cornerRadius(5)
-                .sheet(isPresented: $isEditing) {
-                    CurrentStateView().environment(\.managedObjectContext, managedObjectContext)
+                if !events.isEmpty {
+                    Button(action: {
+                        self.currentModal = .about
+                        self.isEditing.toggle()
+                    }) {
+                        Image(systemName: "questionmark.circle")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                    }
+                    .position(x: 40, y: 40)
+                    
                 }
             }
         }
@@ -123,4 +146,13 @@ extension HorizontalAlignment {
     }
     
     static let centerLine = HorizontalAlignment(CenterLine.self)
+}
+
+enum PresentedLongRangeModal: Int, Hashable, Identifiable {
+    case currentState = 0
+    case about = 1
+    
+    var id: Int {
+        self.hashValue
+    }
 }

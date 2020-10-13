@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD19B32E253557C900F50C38 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19B32D253557C900F50C38 /* AboutView.swift */; };
 		BD21B1A225302167003E2AA2 /* PredictionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1A125302167003E2AA2 /* PredictionEngine.swift */; };
 		BD21B1AC25302593003E2AA2 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1AB25302593003E2AA2 /* Forecast.swift */; };
 		BD21B1B5253027C1003E2AA2 /* CurrentStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1B4253027C1003E2AA2 /* CurrentStateView.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD19B32D253557C900F50C38 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		BD21B1A125302167003E2AA2 /* PredictionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionEngine.swift; sourceTree = "<group>"; };
 		BD21B1AB25302593003E2AA2 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		BD21B1B4253027C1003E2AA2 /* CurrentStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentStateView.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				BD3C929C23F9B64800B62B61 /* LaunchScreen.storyboard */,
 				BD3C929F23F9B64800B62B61 /* Info.plist */,
 				BD3C929923F9B64800B62B61 /* Preview Content */,
+				BD19B32D253557C900F50C38 /* AboutView.swift */,
 			);
 			path = RealBudget;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			files = (
 				BD3C928F23F9B64700B62B61 /* AppMain.swift in Sources */,
 				BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */,
+				BD19B32E253557C900F50C38 /* AboutView.swift in Sources */,
 				BD21B1AC25302593003E2AA2 /* Forecast.swift in Sources */,
 				BD3C92C723FABBD600B62B61 /* LongRangeForecastsView.swift in Sources */,
 				BD44D7CF252DFE9A0051FBD3 /* FinancialState.xcdatamodeld in Sources */,
