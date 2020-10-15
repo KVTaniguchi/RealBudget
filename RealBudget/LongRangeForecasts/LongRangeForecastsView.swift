@@ -26,23 +26,6 @@ struct LongRangeForecastsView: View {
     
     @State var localState: FinancialState?
     
-    var sampleData: [Forecast] {
-        var sample = [Forecast]()
-        
-        sample.append(Forecast(date: Date(), change: 0, balance: 0))
-        
-        var currentDate = Date()
-        let oneweek = TimeInterval(604800)
-        
-        for index in (0 ..< 20) {
-            currentDate = currentDate.addingTimeInterval(oneweek)
-            let forecast = Forecast(date: currentDate, change: 0, balance: 100 + index)
-            sample.append(forecast)
-        }
-        
-        return sample
-    }
-    
     var data: [Forecast] {
         var data: [Forecast] = []
         
