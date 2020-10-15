@@ -13,7 +13,6 @@
 		BD21B1B5253027C1003E2AA2 /* CurrentStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1B4253027C1003E2AA2 /* CurrentStateView.swift */; };
 		BD38349F241DD43F000E8C7C /* KeyboardNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */; };
 		BD3C928F23F9B64700B62B61 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C928E23F9B64700B62B61 /* AppMain.swift */; };
-		BD3C929623F9B64700B62B61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C929523F9B64700B62B61 /* ContentView.swift */; };
 		BD3C929823F9B64800B62B61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3C929723F9B64800B62B61 /* Assets.xcassets */; };
 		BD3C929B23F9B64800B62B61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3C929A23F9B64800B62B61 /* Preview Assets.xcassets */; };
 		BD3C929E23F9B64800B62B61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD3C929C23F9B64800B62B61 /* LaunchScreen.storyboard */; };
@@ -58,7 +57,6 @@
 		BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotifier.swift; sourceTree = "<group>"; };
 		BD3C928B23F9B64700B62B61 /* RealBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD3C928E23F9B64700B62B61 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
-		BD3C929523F9B64700B62B61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD3C929723F9B64800B62B61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD3C929A23F9B64800B62B61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD3C929D23F9B64800B62B61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				BD3C928E23F9B64700B62B61 /* AppMain.swift */,
-				BD3C929523F9B64700B62B61 /* ContentView.swift */,
 				BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */,
 			);
 			path = AppLevel;
@@ -396,7 +393,6 @@
 				BD21B1AC25302593003E2AA2 /* Forecast.swift in Sources */,
 				BD3C92C723FABBD600B62B61 /* LongRangeForecastsView.swift in Sources */,
 				BD44D7CF252DFE9A0051FBD3 /* FinancialState.xcdatamodeld in Sources */,
-				BD3C929623F9B64700B62B61 /* ContentView.swift in Sources */,
 				BD44D7BA252C0D350051FBD3 /* ForecastView.swift in Sources */,
 				BDD27DCB2403291B0072F7D4 /* FinancialEvent.swift in Sources */,
 				BD21B1B5253027C1003E2AA2 /* CurrentStateView.swift in Sources */,
