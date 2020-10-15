@@ -19,7 +19,9 @@ final class PredictionEngine {
         
         var hashedForecasts: [Date: Forecast] = [:]
         for date in dates {
-            hashedForecasts[date] = Forecast(date: date)
+            if date > Date() {
+                hashedForecasts[date] = Forecast(date: date)
+            }
         }
         
         let eventsWithDates = state.events.map { populateChanges(hashedForecasts: hashedForecasts, event: $0, dates: dates) }
