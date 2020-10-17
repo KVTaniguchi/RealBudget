@@ -16,20 +16,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Real Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEH-4U-gaE">
-                                <rect key="frame" x="119" y="257" width="177" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Real Budget" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEH-4U-gaE">
+                                <rect key="frame" x="15" y="257" width="384" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="n1i-92-X8z">
-                                <rect key="frame" x="87" y="314" width="242" height="249"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="n1i-92-X8z">
+                                <rect key="frame" x="86" y="327" width="242" height="242"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="242" id="0yZ-Ew-ezF"/>
+                                    <constraint firstAttribute="width" constant="242" id="jdo-zE-whL"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="n1i-92-X8z" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="1fT-hW-M4N"/>
+                            <constraint firstItem="n1i-92-X8z" firstAttribute="top" secondItem="NEH-4U-gaE" secondAttribute="bottom" constant="29" id="FyW-Uf-Tgd"/>
+                            <constraint firstItem="n1i-92-X8z" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="NJS-x2-aOC"/>
+                            <constraint firstItem="n1i-92-X8z" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Tds-j4-XNC"/>
+                            <constraint firstItem="n1i-92-X8z" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="YnK-al-K7W"/>
+                            <constraint firstItem="NEH-4U-gaE" firstAttribute="centerX" secondItem="n1i-92-X8z" secondAttribute="centerX" id="jVD-Wv-OJl"/>
+                            <constraint firstItem="NEH-4U-gaE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="zHt-Od-qcR"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
