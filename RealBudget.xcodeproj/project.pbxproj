@@ -27,6 +27,13 @@
 		BD53B7FB2533FD3000E58DBF /* RealBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD53B7FA2533FD3000E58DBF /* RealBudgetUITests.swift */; };
 		BD53B8062533FE3100E58DBF /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD53B8052533FE3100E58DBF /* SnapshotHelper.swift */; };
 		BDA42D2F253152E20070B910 /* LongRangeBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA42D2E253152E20070B910 /* LongRangeBottomView.swift */; };
+		BDA68203253B897200DC5201 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA68202253B897200DC5201 /* WidgetKit.framework */; };
+		BDA68205253B897200DC5201 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA68204253B897200DC5201 /* SwiftUI.framework */; };
+		BDA68208253B897200DC5201 /* Real_Budget_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA68207253B897200DC5201 /* Real_Budget_Widget.swift */; };
+		BDA6820B253B897300DC5201 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA6820A253B897300DC5201 /* Assets.xcassets */; };
+		BDA6820D253B897300DC5201 /* Real_Budget_Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BDA68209253B897200DC5201 /* Real_Budget_Widget.intentdefinition */; };
+		BDA6820E253B897300DC5201 /* Real_Budget_Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BDA68209253B897200DC5201 /* Real_Budget_Widget.intentdefinition */; };
+		BDA68211253B897300DC5201 /* Real Budget WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BDA68201253B897200DC5201 /* Real Budget WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BDA6F1BF2403849C0080BA7D /* FinancialEventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */; };
 		BDD27DC9240328E00072F7D4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD27DC8240328E00072F7D4 /* CloudKit.framework */; };
 		BDD27DCB2403291B0072F7D4 /* FinancialEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD27DCA2403291B0072F7D4 /* FinancialEvent.swift */; };
@@ -47,7 +54,28 @@
 			remoteGlobalIDString = BD3C928A23F9B64700B62B61;
 			remoteInfo = RealBudget;
 		};
+		BDA6820F253B897300DC5201 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3C928323F9B64700B62B61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDA68200253B897200DC5201;
+			remoteInfo = "Real Budget WidgetExtension";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BDA68212253B897300DC5201 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BDA68211253B897300DC5201 /* Real Budget WidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BD19B32D253557C900F50C38 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -76,6 +104,14 @@
 		BD53B7FC2533FD3000E58DBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD53B8052533FE3100E58DBF /* SnapshotHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		BDA42D2E253152E20070B910 /* LongRangeBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongRangeBottomView.swift; sourceTree = "<group>"; };
+		BDA68201253B897200DC5201 /* Real Budget WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Real Budget WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDA68202253B897200DC5201 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		BDA68204253B897200DC5201 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		BDA68207253B897200DC5201 /* Real_Budget_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Real_Budget_Widget.swift; sourceTree = "<group>"; };
+		BDA68209253B897200DC5201 /* Real_Budget_Widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Real_Budget_Widget.intentdefinition; sourceTree = "<group>"; };
+		BDA6820A253B897300DC5201 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDA6820C253B897300DC5201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDA6821A253B898300DC5201 /* Real Budget WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Real Budget WidgetExtension.entitlements"; sourceTree = "<group>"; };
 		BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialEventDetailView.swift; sourceTree = "<group>"; };
 		BDD27DC6240328D10072F7D4 /* RealBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RealBudget.entitlements; sourceTree = "<group>"; };
 		BDD27DC8240328E00072F7D4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -105,6 +141,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BDA681FE253B897200DC5201 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDA68205253B897200DC5201 /* SwiftUI.framework in Frameworks */,
+				BDA68203253B897200DC5201 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -127,9 +172,11 @@
 		BD3C928223F9B64700B62B61 = {
 			isa = PBXGroup;
 			children = (
+				BDA6821A253B898300DC5201 /* Real Budget WidgetExtension.entitlements */,
 				BD3C928D23F9B64700B62B61 /* RealBudget */,
 				BD3C92A723F9B64800B62B61 /* RealBudgetTests */,
 				BD53B7F92533FD3000E58DBF /* RealBudgetUITests */,
+				BDA68206253B897200DC5201 /* Real Budget Widget */,
 				BD3C928C23F9B64700B62B61 /* Products */,
 				BDD27DC7240328E00072F7D4 /* Frameworks */,
 			);
@@ -141,6 +188,7 @@
 				BD3C928B23F9B64700B62B61 /* RealBudget.app */,
 				BD3C92A423F9B64800B62B61 /* RealBudgetTests.xctest */,
 				BD53B7F82533FD3000E58DBF /* RealBudgetUITests.xctest */,
+				BDA68201253B897200DC5201 /* Real Budget WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,6 +288,17 @@
 			path = RealBudgetUITests;
 			sourceTree = "<group>";
 		};
+		BDA68206253B897200DC5201 /* Real Budget Widget */ = {
+			isa = PBXGroup;
+			children = (
+				BDA68207253B897200DC5201 /* Real_Budget_Widget.swift */,
+				BDA68209253B897200DC5201 /* Real_Budget_Widget.intentdefinition */,
+				BDA6820A253B897300DC5201 /* Assets.xcassets */,
+				BDA6820C253B897300DC5201 /* Info.plist */,
+			);
+			path = "Real Budget Widget";
+			sourceTree = "<group>";
+		};
 		BDA6F1BD240384890080BA7D /* EventDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +311,8 @@
 			isa = PBXGroup;
 			children = (
 				BDD27DC8240328E00072F7D4 /* CloudKit.framework */,
+				BDA68202253B897200DC5201 /* WidgetKit.framework */,
+				BDA68204253B897200DC5201 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -266,10 +327,12 @@
 				BD3C928723F9B64700B62B61 /* Sources */,
 				BD3C928823F9B64700B62B61 /* Frameworks */,
 				BD3C928923F9B64700B62B61 /* Resources */,
+				BDA68212253B897300DC5201 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BDA68210253B897300DC5201 /* PBXTargetDependency */,
 			);
 			name = RealBudget;
 			productName = RealBudget;
@@ -312,6 +375,23 @@
 			productReference = BD53B7F82533FD3000E58DBF /* RealBudgetUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		BDA68200253B897200DC5201 /* Real Budget WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDA68215253B897300DC5201 /* Build configuration list for PBXNativeTarget "Real Budget WidgetExtension" */;
+			buildPhases = (
+				BDA681FD253B897200DC5201 /* Sources */,
+				BDA681FE253B897200DC5201 /* Frameworks */,
+				BDA681FF253B897200DC5201 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Real Budget WidgetExtension";
+			productName = "Real Budget WidgetExtension";
+			productReference = BDA68201253B897200DC5201 /* Real Budget WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -333,6 +413,9 @@
 						CreatedOnToolsVersion = 12.0.1;
 						TestTargetID = BD3C928A23F9B64700B62B61;
 					};
+					BDA68200253B897200DC5201 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
 				};
 			};
 			buildConfigurationList = BD3C928623F9B64700B62B61 /* Build configuration list for PBXProject "RealBudget" */;
@@ -351,6 +434,7 @@
 				BD3C928A23F9B64700B62B61 /* RealBudget */,
 				BD3C92A323F9B64800B62B61 /* RealBudgetTests */,
 				BD53B7F72533FD3000E58DBF /* RealBudgetUITests */,
+				BDA68200253B897200DC5201 /* Real Budget WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -380,6 +464,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BDA681FF253B897200DC5201 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDA6820B253B897300DC5201 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -387,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDA6820E253B897300DC5201 /* Real_Budget_Widget.intentdefinition in Sources */,
 				BD3C928F23F9B64700B62B61 /* AppMain.swift in Sources */,
 				BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */,
 				BD19B32E253557C900F50C38 /* AboutView.swift in Sources */,
@@ -423,6 +516,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BDA681FD253B897200DC5201 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDA68208253B897200DC5201 /* Real_Budget_Widget.swift in Sources */,
+				BDA6820D253B897300DC5201 /* Real_Budget_Widget.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -435,6 +537,11 @@
 			isa = PBXTargetDependency;
 			target = BD3C928A23F9B64700B62B61 /* RealBudget */;
 			targetProxy = BD53B7FD2533FD3000E58DBF /* PBXContainerItemProxy */;
+		};
+		BDA68210253B897300DC5201 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDA68200253B897200DC5201 /* Real Budget WidgetExtension */;
+			targetProxy = BDA6820F253B897300DC5201 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -569,6 +676,7 @@
 		BD3C92AE23F9B64800B62B61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RealBudget/RealBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -591,6 +699,7 @@
 		BD3C92AF23F9B64800B62B61 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RealBudget/RealBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -692,6 +801,50 @@
 			};
 			name = Release;
 		};
+		BDA68213253B897300DC5201 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Real Budget WidgetExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3B3FT42G96;
+				INFOPLIST_FILE = "Real Budget Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Taniguchi.RealBudget.Real-Budget-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BDA68214253B897300DC5201 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Real Budget WidgetExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3B3FT42G96;
+				INFOPLIST_FILE = "Real Budget Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Taniguchi.RealBudget.Real-Budget-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -727,6 +880,15 @@
 			buildConfigurations = (
 				BD53B8002533FD3000E58DBF /* Debug */,
 				BD53B8012533FD3000E58DBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDA68215253B897300DC5201 /* Build configuration list for PBXNativeTarget "Real Budget WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDA68213253B897300DC5201 /* Debug */,
+				BDA68214253B897300DC5201 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
