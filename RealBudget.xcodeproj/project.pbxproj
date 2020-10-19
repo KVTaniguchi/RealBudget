@@ -828,6 +828,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "Real Budget WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3B3FT42G96;
 				INFOPLIST_FILE = "Real Budget Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -851,6 +852,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "Real Budget WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3B3FT42G96;
 				INFOPLIST_FILE = "Real Budget Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
