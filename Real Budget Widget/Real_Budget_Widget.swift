@@ -87,15 +87,15 @@ struct Real_Budget_WidgetEntryView : View {
 
     var body: some View {
         VStack {
-            Text(entry.date, style: .time)
+            Text(RBDateFormatter.shared.string(from: entry.date)).fontWeight(.bold)
             if let first = data.first {
-                Text("\(RBDateFormatter.shared.formatter.string(from: first.date)) \(first.balance)")
+                EntryLineView(forecast: first)
             }
             if let next = data[1] {
-                Text("\(RBDateFormatter.shared.formatter.string(from: next.date)) \(next.balance)")
+                EntryLineView(forecast: next)
             }
             if let last = data[2] {
-                Text("\(RBDateFormatter.shared.formatter.string(from: last.date)) \(last.balance)")
+                EntryLineView(forecast: last)
             }
         }
     }

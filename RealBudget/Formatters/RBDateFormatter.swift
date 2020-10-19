@@ -17,4 +17,8 @@ final class RBDateFormatter {
         formatter = DateFormatter()
         formatter.dateStyle = .short
     }
+    
+    func string(from date: Date) -> String {
+        formatter.string(from: date)
+    }
 }
