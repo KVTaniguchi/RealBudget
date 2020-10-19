@@ -109,7 +109,7 @@ struct CurrentStateView: View {
                     }
                 }
             }
-        }.background(Color(red: 0.75, green: 0.85, blue: 0.86))
+        }.background(Color(red: 0.99, green: 0.80, blue: 0.00))
     }
     
     func save() {
