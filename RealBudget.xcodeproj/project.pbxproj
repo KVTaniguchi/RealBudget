@@ -34,6 +34,13 @@
 		BDA6820D253B897300DC5201 /* Real_Budget_Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BDA68209253B897200DC5201 /* Real_Budget_Widget.intentdefinition */; };
 		BDA6820E253B897300DC5201 /* Real_Budget_Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BDA68209253B897200DC5201 /* Real_Budget_Widget.intentdefinition */; };
 		BDA68211253B897300DC5201 /* Real Budget WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BDA68201253B897200DC5201 /* Real Budget WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BDA6821F253B929300DC5201 /* PredictionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1A125302167003E2AA2 /* PredictionEngine.swift */; };
+		BDA68224253B929C00DC5201 /* RBDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7BE252CA0400051FBD3 /* RBDateFormatter.swift */; };
+		BDA68229253B92B100DC5201 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1AB25302593003E2AA2 /* Forecast.swift */; };
+		BDA6822E253B940300DC5201 /* FinancialState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C92B623F9B6AB00B62B61 /* FinancialState.swift */; };
+		BDA68233253B940D00DC5201 /* FinancialEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD27DCA2403291B0072F7D4 /* FinancialEvent.swift */; };
+		BDA68238253B941A00DC5201 /* Frequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C92BB23F9B75500B62B61 /* Frequency.swift */; };
+		BDA68241253B94BF00DC5201 /* FinancialState.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */; };
 		BDA6F1BF2403849C0080BA7D /* FinancialEventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */; };
 		BDD27DC9240328E00072F7D4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD27DC8240328E00072F7D4 /* CloudKit.framework */; };
 		BDD27DCB2403291B0072F7D4 /* FinancialEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD27DCA2403291B0072F7D4 /* FinancialEvent.swift */; };
@@ -521,7 +528,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDA68208253B897200DC5201 /* Real_Budget_Widget.swift in Sources */,
+				BDA6822E253B940300DC5201 /* FinancialState.swift in Sources */,
+				BDA68233253B940D00DC5201 /* FinancialEvent.swift in Sources */,
 				BDA6820D253B897300DC5201 /* Real_Budget_Widget.intentdefinition in Sources */,
+				BDA68241253B94BF00DC5201 /* FinancialState.xcdatamodeld in Sources */,
+				BDA68238253B941A00DC5201 /* Frequency.swift in Sources */,
+				BDA68224253B929C00DC5201 /* RBDateFormatter.swift in Sources */,
+				BDA6821F253B929300DC5201 /* PredictionEngine.swift in Sources */,
+				BDA68229253B92B100DC5201 /* Forecast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,7 +706,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Taniguchi.RealBudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -715,7 +729,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Taniguchi.RealBudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -815,11 +829,12 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Taniguchi.RealBudget.Real-Budget-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -837,11 +852,12 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Taniguchi.RealBudget.Real-Budget-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

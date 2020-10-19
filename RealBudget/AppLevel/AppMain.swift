@@ -17,52 +17,14 @@ struct ReadBudget: App {
     init() {
         let persistContainer = NSPersistentContainer(name: "FinancialState")
         
+        let storeURL = URL.storeURL(for: "group.realbudget", databaseName: "realbudget")
+        let storeDescription = NSPersistentStoreDescription(url: storeURL)
+        persistContainer.persistentStoreDescriptions = [storeDescription]
+        
         persistContainer.loadPersistentStores { (description, error) in
-            if let error = error {
-                print(error)
-            }
-            if let oldUrl = description.url {
-                let coordinator = NSPersistentStoreCoordinator(managedObjectModel: persistContainer.managedObjectModel)
-                var storeOptions = [AnyHashable : Any]()
-                storeOptions[NSMigratePersistentStoresAutomaticallyOption] = true
-                storeOptions[NSInferMappingModelAutomaticallyOption] = true
-                
-                guard let newStoreUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.realbudget") else { return }
-                
-                var targetUrl : URL? = nil
-                var needMigrate = false
-
-                if FileManager.default.fileExists(atPath: oldUrl.path) {
-                    needMigrate = true
-                    targetUrl = oldUrl
-                }
-
-                if FileManager.default.fileExists(atPath: newStoreUrl.path){
-                    needMigrate = false
-                    targetUrl = newStoreUrl
-                }
-                
-                if targetUrl == nil {
-                    targetUrl = newStoreUrl
-                }
-                
-                if needMigrate {
-                    do {
-                        try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: targetUrl!, options: storeOptions)
-                        if let store = coordinator.persistentStore(for: targetUrl!)
-                         {
-                            do {
-                                try coordinator.migratePersistentStore(store, to: newStoreUrl, options: storeOptions, withType: NSSQLiteStoreType)
-
-                            } catch let error {
-                                print("migrate failed with error : \(error)")
-                            }
-                        }
-                    } catch let error {
-                        print(error)
-                    }
-                }
-            }
+            #if DEBUG
+                print(error.debugDescription)
+            #endif
         }
         
         self.container = persistContainer
@@ -91,3 +53,14 @@ struct ReadBudget: App {
     }
 }
 
+public extension URL {
+
+    /// Returns a URL for the given app group and database pointing to the sqlite database.
+    static func storeURL(for appGroup: String, databaseName: String) -> URL {
+        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
+            fatalError("Shared file container could not be created.")
+        }
+
+        return fileContainer.appendingPathComponent("\(databaseName).sqlite")
+    }
+}

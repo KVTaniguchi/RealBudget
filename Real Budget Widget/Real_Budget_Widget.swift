@@ -6,9 +6,10 @@
 //  Copyright © 2020 Kevin Taniguchi. All rights reserved.
 //
 
-import WidgetKit
-import SwiftUI
+import CoreData
 import Intents
+import SwiftUI
+import WidgetKit
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
@@ -43,28 +44,101 @@ struct SimpleEntry: TimelineEntry {
 
 struct Real_Budget_WidgetEntryView : View {
     var entry: Provider.Entry
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @FetchRequest(
+        entity: RBState.entity(),
+        sortDescriptors: []
+    ) var state: FetchedResults<RBState>
+    
+    @FetchRequest(
+        entity: RBEvent.entity(),
+        sortDescriptors: []
+    ) var events: FetchedResults<RBEvent>
+    
+    var data: [Forecast] {
+        var data: [Forecast] = []
+        
+        let actualBalance = Int(state.first?.actualBalance ?? 0)
+        let financialEvents = events.map {
+            FinancialEvent(
+                id: $0.id,
+                type: FinancialEventType(rawValue: Int($0.type)) ?? .expense,
+                name: $0.name ?? "no name",
+                value: Int($0.change),
+                frequency: Frequency(rawValue: Int($0.frequency)) ?? .monthly,
+                startDate: $0.startDate ?? Date(),
+                endDate: $0.endDate
+            )
+        }
+        let state = FinancialState(actualBalance: actualBalance, events: financialEvents)
+        let predictions = PredictionEngine.shared.predict(state: state)
+        
+        let sortedDates = predictions.keys.sorted()
+        
+        for date in sortedDates {
+            if let forecast = predictions[date] {
+                data.append(forecast)
+            }
+        }
+        
+        return data
+    }
 
     var body: some View {
-        Text(entry.date, style: .time)
+        VStack {
+            Text(entry.date, style: .time)
+            if let first = data.first {
+                Text("\(RBDateFormatter.shared.formatter.string(from: first.date)) \(first.balance)")
+            }
+            if let next = data[1] {
+                Text("\(RBDateFormatter.shared.formatter.string(from: next.date)) \(next.balance)")
+            }
+            if let last = data[2] {
+                Text("\(RBDateFormatter.shared.formatter.string(from: last.date)) \(last.balance)")
+            }
+        }
     }
 }
 
 @main
 struct Real_Budget_Widget: Widget {
     let kind: String = "Real_Budget_Widget"
+    
+    var container: NSPersistentContainer
+    
+    init() {
+        container = NSPersistentContainer(name: "FinancialState")
+        let storeURL = URL.storeURL(for: "group.realbudget", databaseName: "realbudget")
+        let storeDescription = NSPersistentStoreDescription(url: storeURL)
+        container.persistentStoreDescriptions = [storeDescription]
+        container.loadPersistentStores { (description, error) in
+            #if DEBUG
+                print(error.debugDescription)
+            #endif
+        }
+    }
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            Real_Budget_WidgetEntryView(entry: entry)
+        IntentConfiguration(
+            kind: kind,
+            intent: ConfigurationIntent.self,
+            provider: Provider()
+        ) { entry in
+            Real_Budget_WidgetEntryView(entry: entry).environment(\.managedObjectContext, container.viewContext)
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
     }
 }
 
-struct Real_Budget_Widget_Previews: PreviewProvider {
-    static var previews: some View {
-        Real_Budget_WidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+public extension URL {
+    /// Returns a URL for the given app group and database pointing to the sqlite database.
+    static func storeURL(for appGroup: String, databaseName: String) -> URL {
+        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
+            fatalError("Shared file container could not be created.")
+        }
+
+        return fileContainer.appendingPathComponent("\(databaseName).sqlite")
     }
 }
