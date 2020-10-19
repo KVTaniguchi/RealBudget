@@ -19,6 +19,7 @@ struct EntryLineView: View {
             Text("\(forecast.balance)")
                 .font(.custom("arial", fixedSize: 14))
                 .fontWeight(.light)
+                .foregroundColor(.gray)
         }
     }
 }
