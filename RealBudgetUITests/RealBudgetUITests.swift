@@ -46,8 +46,6 @@ class RealBudgetUITests: XCTestCase {
         tablesQuery/*@START_MENU_TOKEN@*/.buttons["Rent $1,100"]/*[[".cells[\"Rent $1,100\"].buttons[\"Rent $1,100\"]",".buttons[\"Rent $1,100\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         snapshot("03edit")
         closeButton.tap()
-        XCUIApplication().buttons["questionmark.circle"].tap()
-        snapshot("04info")
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 

@@ -128,7 +128,8 @@ struct Real_Budget_Widget: Widget {
             Real_Budget_WidgetEntryView(entry: entry).environment(\.managedObjectContext, container.viewContext)
         }
         .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .description("Forecast and estimate your future budget!")
+        .supportedFamilies([.systemSmall])
     }
 }
 
