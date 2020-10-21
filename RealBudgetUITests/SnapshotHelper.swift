@@ -78,9 +78,7 @@ open class Snapshot: NSObject {
             setLanguage(app)
             setLocale(app)
             setLaunchArguments(app)
-        } catch let error {
-            print(error)
-        }
+        } catch let error {}
     }
 
     class func setLanguage(_ app: XCUIApplication) {

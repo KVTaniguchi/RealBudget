@@ -143,9 +143,7 @@ struct FinancialEventDetailView: View {
             do {
                 try managedObjectContext.save()
                 self.presentationMode.wrappedValue.dismiss()
-            } catch {
-                print(error)
-            }
+            } catch {}
         }
     }
     

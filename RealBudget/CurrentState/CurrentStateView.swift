@@ -116,9 +116,7 @@ struct CurrentStateView: View {
         if managedObjectContext.hasChanges {
             do {
                 _ = try managedObjectContext.save()
-            } catch {
-                print(error)
-            }
+            } catch {}
         }
     }
 }

@@ -8,6 +8,7 @@
 
 import SwiftUI
 import CoreData
+import WidgetKit
 
 @main
 struct ReadBudget: App {
@@ -46,6 +47,8 @@ struct ReadBudget: App {
         if context.hasChanges {
             do {
                 try context.save()
+                
+                WidgetCenter.shared.reloadAllTimelines()
             } catch {
                 // Show the error here
             }
