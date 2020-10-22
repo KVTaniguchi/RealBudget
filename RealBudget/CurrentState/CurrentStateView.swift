@@ -40,76 +40,96 @@ struct CurrentStateView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Button(action: {
-                self.presentationMode.wrappedValue.dismiss()
-            }) {
-                Image(systemName: "xmark")
-            }
-            .padding()
+            closeButton
             Form {
-                Text("Edit your balance, income, and expenses")
-                .font(.title)
-                Section {
-                    MoneyEntryView(
-                        amount: $balance,
-                        isEditing: $isEditing,
-                        existingBalance: existingBalance
-                    )
-                    if isEditing {
-                        Button("Done") {
-                            hideKeyboard()
-                            guard balance > 0 else { return }
-                            if let state = state.first {
-                                state.actualBalance = Int32(balance)
-                            } else {
-                                let newState = RBState(context: managedObjectContext)
-                                newState.actualBalance = Int32(balance)
-                            }
-                            
-                            save()
-                            isEditing = false
-                        }.accentColor(Color.blue)
-                    }
-                }
-                Section {
-                    Button(action: {
-                        self.showingEvent.toggle()
-                    }
-                    ) {
-                        Text("Add new").foregroundColor(Color.blue)
-                    }
-                    .sheet(isPresented: $showingEvent) {
-                        FinancialEventDetailView(event: nil).environment(\.managedObjectContext, managedObjectContext)
-                    }
-                }
-                Section {
-                    Text("Expenses")
-                    ForEach(expenses) { expense in
-                        Button(action: {
-                            self.showingEvent.toggle()
-                        }
-                        ) {
-                            Text("\(expense.name ?? "No name") $\(expense.change)")
-                        }
-                        .sheet(isPresented: $showingEvent) {
-                            FinancialEventDetailView(event: expense).environment(\.managedObjectContext, managedObjectContext)
-                        }
-                    }
-                    Text("Income")
-                    ForEach(income) { income in
-                        Button(action: {
-                            self.showingEvent.toggle()
-                        }
-                        ) {
-                            Text("\(income.name ?? "No name") $\(income.change)")
-                        }
-                        .sheet(isPresented: $showingEvent) {
-                            FinancialEventDetailView(event: income).environment(\.managedObjectContext, managedObjectContext)
-                        }
-                    }
-                }
+                title
+                moneySection
+                addNew
+                eventsSection
             }
         }.background(Color(red: 0.99, green: 0.80, blue: 0.00))
+    }
+    
+    var closeButton: some View {
+        Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {
+            Image(systemName: "xmark")
+        }
+        .padding()
+    }
+    
+    var title: some View {
+        Text("Edit your balance, income, and expenses")
+        .font(.title)
+    }
+    
+    var moneySection: some View {
+        Section {
+            MoneyEntryView(
+                amount: $balance,
+                isEditing: $isEditing,
+                existingBalance: existingBalance
+            )
+            if isEditing {
+                Button("Done") {
+                    hideKeyboard()
+                    guard balance > 0 else { return }
+                    if let state = state.first {
+                        state.actualBalance = Int32(balance)
+                    } else {
+                        let newState = RBState(context: managedObjectContext)
+                        newState.actualBalance = Int32(balance)
+                    }
+                    
+                    save()
+                    isEditing = false
+                }.accentColor(Color.blue)
+            }
+        }
+    }
+    
+    var addNew: some View {
+        Section {
+            Button(action: {
+                self.showingEvent.toggle()
+            }
+            ) {
+                Text("Add new").foregroundColor(Color.blue)
+            }
+            .sheet(isPresented: $showingEvent) {
+                FinancialEventDetailView(event: nil).environment(\.managedObjectContext, managedObjectContext)
+            }
+        }
+    }
+    
+    var eventsSection: some View {
+        Section {
+            Text("Expenses")
+            ForEach(expenses) { expense in
+                Button(action: {
+                    self.showingEvent.toggle()
+                }
+                ) {
+                    Text("\(expense.name ?? "No name") $\(expense.change)")
+                }
+                .sheet(isPresented: $showingEvent) {
+                    FinancialEventDetailView(event: expense).environment(\.managedObjectContext, managedObjectContext)
+                }
+            }
+            Text("Income")
+            ForEach(income) { income in
+                Button(action: {
+                    self.showingEvent.toggle()
+                }
+                ) {
+                    Text("\(income.name ?? "No name") $\(income.change)")
+                }
+                .sheet(isPresented: $showingEvent) {
+                    FinancialEventDetailView(event: income).environment(\.managedObjectContext, managedObjectContext)
+                }
+            }
+        }
     }
     
     func save() {
