@@ -56,26 +56,16 @@ struct LongRangeForecastsView: View {
     }
     
     var body: some View {
-        // edit button in nav view , toggles to save when active
         GeometryReader { g in
             ZStack {
+                if !events.isEmpty {
+                    infoButton
+                }
                 VStack(alignment: .center) {
                     if events.isEmpty {
-                        VStack {
-                            Text(introText).padding().multilineTextAlignment(.center)
-                            Button("Start adding data") {
-                                isEditing.toggle()
-                            }
-                            .padding()
-                        }
+                        Text(introText).padding().multilineTextAlignment(.center)
                     }
-                    ScrollView {
-                        VStack(alignment: .centerLine, spacing: 0) {
-                            ForEach(data) { data in
-                                ForecastView(forecast: data).frame(maxWidth: g.size.width)
-                            }
-                        }
-                    }
+                    forecastingScroller(g: g)
                     LongRangeBottomView(
                         balance: Int(state.first?.actualBalance ?? 0),
                         isEditing: $isEditing,
@@ -91,17 +81,27 @@ struct LongRangeForecastsView: View {
                         }
                     }
                 }
-                if !events.isEmpty {
-                    Button(action: {
-                        self.currentModal = .about
-                        self.isEditing.toggle()
-                    }) {
-                        Image(systemName: "questionmark.circle")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                    }
-                    .position(x: 40, y: 40)
-                    
+            }
+        }
+    }
+    
+    var infoButton: some View {
+        Button(action: {
+            self.currentModal = .about
+            self.isEditing.toggle()
+        }) {
+            Image(systemName: "questionmark.circle")
+            .resizable()
+            .frame(width: 30, height: 30)
+        }
+        .position(x: 40, y: 40)
+    }
+    
+    func forecastingScroller(g: GeometryProxy) -> some View {
+        ScrollView {
+            VStack(alignment: .centerLine, spacing: 0) {
+                ForEach(data) { data in
+                    ForecastView(forecast: data).frame(maxWidth: g.size.width)
                 }
             }
         }
