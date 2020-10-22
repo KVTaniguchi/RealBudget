@@ -121,44 +121,6 @@ struct CurrentStateView: View {
     }
 }
 
-struct MoneyEntryView: View {
-    @Binding var amount: Int
-    @Binding var isEditing: Bool
-    @State var existingBalance: Int?
-
-    var amountProxy: Binding<String> {
-        Binding<String>(
-            get: { self.string(from: existingBalance ?? self.amount) },
-            set: {
-                self.existingBalance = Int($0)
-                self.amount = Int($0) ?? 0
-//                if let value = RBMoneyFormatter.shared.formatter.number(from: $0) {
-//                    self.existingBalance = value.intValue
-//                    self.amount = value.intValue
-//                } else {
-//                    print("fail")
-//                }
-            }
-        )
-    }
-
-    var body: some View {
-        HStack {
-            Text("Current balance ($)")
-            TextField("Amount", text: amountProxy, onEditingChanged: { (isEditing) in
-                self.isEditing = isEditing
-            })
-            .multilineTextAlignment(.trailing).keyboardType(.numberPad)
-            .padding(.trailing, 60)
-        }
-    }
-
-    // I had multiple fields on this page so extracted this into a function...
-    private func string(from value: Int) -> String {
-        return "\(value)"
-    }
-}
-
 #if canImport(UIKit)
 extension View {
     func hideKeyboard() {
