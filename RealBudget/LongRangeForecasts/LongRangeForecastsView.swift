@@ -58,9 +58,6 @@ struct LongRangeForecastsView: View {
     var body: some View {
         GeometryReader { g in
             ZStack {
-                if !events.isEmpty {
-                    infoButton
-                }
                 VStack(alignment: .center) {
                     if events.isEmpty {
                         Text(introText).padding().multilineTextAlignment(.center)
@@ -80,6 +77,9 @@ struct LongRangeForecastsView: View {
                             CurrentStateView().environment(\.managedObjectContext, managedObjectContext)
                         }
                     }
+                }
+                if !events.isEmpty {
+                    infoButton
                 }
             }
         }
