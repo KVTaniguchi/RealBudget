@@ -63,20 +63,7 @@ struct LongRangeForecastsView: View {
                         Text(introText).padding().multilineTextAlignment(.center)
                     }
                     forecastingScroller(g: g)
-                    LongRangeBottomView(
-                        balance: Int(state.first?.actualBalance ?? 0),
-                        isEditing: $isEditing,
-                        currentModal: $currentModal
-                    ).background(Color(red: 0.99, green: 0.80, blue: 0.00))
-                    .cornerRadius(5)
-                    .sheet(item: $currentModal) {  item in
-                        switch item {
-                        case .about:
-                            AboutView()
-                        case .currentState:
-                            CurrentStateView().environment(\.managedObjectContext, managedObjectContext)
-                        }
-                    }
+                    bottomPanel
                 }
                 if !events.isEmpty {
                     infoButton
@@ -103,6 +90,23 @@ struct LongRangeForecastsView: View {
                 ForEach(data) { data in
                     ForecastView(forecast: data).frame(maxWidth: g.size.width)
                 }
+            }
+        }
+    }
+    
+    var bottomPanel: some View {
+        LongRangeBottomView(
+            balance: Int(state.first?.actualBalance ?? 0),
+            isEditing: $isEditing,
+            currentModal: $currentModal
+        ).background(Color(red: 0.99, green: 0.80, blue: 0.00))
+        .cornerRadius(5)
+        .sheet(item: $currentModal) {  item in
+            switch item {
+            case .about:
+                AboutView()
+            case .currentState:
+                CurrentStateView().environment(\.managedObjectContext, managedObjectContext)
             }
         }
     }
