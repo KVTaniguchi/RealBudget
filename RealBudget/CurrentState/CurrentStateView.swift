@@ -12,6 +12,7 @@ struct CurrentStateView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var isEditing = false
+    @State var isOperating = false
     @State var balance: Int = 0
     @State var showingEvent = false
     
@@ -68,11 +69,14 @@ struct CurrentStateView: View {
         Section {
             MoneyEntryView(
                 amount: $balance,
+                isOperating: $isOperating,
                 isEditing: $isEditing,
                 existingBalance: existingBalance
             )
             if isEditing {
                 Button("Done") {
+                    isEditing = false
+                    isOperating = false
                     hideKeyboard()
                     guard balance > 0 else { return }
                     if let state = state.first {
@@ -83,7 +87,6 @@ struct CurrentStateView: View {
                     }
                     
                     save()
-                    isEditing = false
                 }.accentColor(Color.blue)
             }
         }
