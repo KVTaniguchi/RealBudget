@@ -26,6 +26,7 @@
 		BD44D7CF252DFE9A0051FBD3 /* FinancialState.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */; };
 		BD53B7FB2533FD3000E58DBF /* RealBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD53B7FA2533FD3000E58DBF /* RealBudgetUITests.swift */; };
 		BD53B8062533FE3100E58DBF /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD53B8052533FE3100E58DBF /* SnapshotHelper.swift */; };
+		BD9A15052549A32C00785712 /* MoneyEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A15042549A32C00785712 /* MoneyEntryView.swift */; };
 		BDA42D2F253152E20070B910 /* LongRangeBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA42D2E253152E20070B910 /* LongRangeBottomView.swift */; };
 		BDA68203253B897200DC5201 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA68202253B897200DC5201 /* WidgetKit.framework */; };
 		BDA68205253B897200DC5201 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA68204253B897200DC5201 /* SwiftUI.framework */; };
@@ -111,6 +112,7 @@
 		BD53B7FA2533FD3000E58DBF /* RealBudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealBudgetUITests.swift; sourceTree = "<group>"; };
 		BD53B7FC2533FD3000E58DBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD53B8052533FE3100E58DBF /* SnapshotHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		BD9A15042549A32C00785712 /* MoneyEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyEntryView.swift; sourceTree = "<group>"; };
 		BDA42D2E253152E20070B910 /* LongRangeBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongRangeBottomView.swift; sourceTree = "<group>"; };
 		BDA68201253B897200DC5201 /* Real Budget WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Real Budget WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA68202253B897200DC5201 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				BD21B1B4253027C1003E2AA2 /* CurrentStateView.swift */,
+				BD9A15042549A32C00785712 /* MoneyEntryView.swift */,
 			);
 			path = CurrentState;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				BD3C928F23F9B64700B62B61 /* AppMain.swift in Sources */,
 				BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */,
 				BD19B32E253557C900F50C38 /* AboutView.swift in Sources */,
+				BD9A15052549A32C00785712 /* MoneyEntryView.swift in Sources */,
 				BD21B1AC25302593003E2AA2 /* Forecast.swift in Sources */,
 				BD3C92C723FABBD600B62B61 /* LongRangeForecastsView.swift in Sources */,
 				BD44D7CF252DFE9A0051FBD3 /* FinancialState.xcdatamodeld in Sources */,
