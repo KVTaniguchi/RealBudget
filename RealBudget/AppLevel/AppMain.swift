@@ -34,7 +34,6 @@ struct ReadBudget: App {
     var body: some Scene {
         WindowGroup {
             RBTabView().environment(\.managedObjectContext, container.viewContext)
-//            LongRangeForecastsView().environment(\.managedObjectContext, container.viewContext)
         }
         .onChange(of: scenePhase) { phase in
             if phase == .background {
