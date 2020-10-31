@@ -14,6 +14,7 @@ struct CurrentStateView: View {
     @State var isEditing = false
     @State var balance: Int = 0
     @State var showingEvent = false
+    @State private var showingAbout = false
     
     private var existingBalance: Int? {
         guard let existingBalance = state.first?.actualBalance else { return nil }
@@ -40,12 +41,6 @@ struct CurrentStateView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Button(action: {
-                self.presentationMode.wrappedValue.dismiss()
-            }) {
-                Image(systemName: "xmark")
-            }
-            .padding()
             Form {
                 Text("Edit your balance, income, and expenses")
                 .font(.title)
@@ -97,6 +92,14 @@ struct CurrentStateView: View {
                             FinancialEventDetailView(event: income).environment(\.managedObjectContext, managedObjectContext)
                         }
                     }
+                }
+                Section {
+                    Button("About") {
+                        self.showingAbout.toggle()
+                    }
+                }
+                .sheet(isPresented: $showingAbout) {
+                    AboutView()
                 }
             }
         }.background(Color(red: 0.99, green: 0.80, blue: 0.00))

@@ -10,9 +10,9 @@ import SwiftUI
 
 struct LongRangeForecastsView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    @State var isEditing = false
     @State var isShowingInfo = false
-    @State var currentModal: PresentedLongRangeModal? = nil
+    
+    @Binding var activeTab: Int
     
     @FetchRequest(
         entity: RBState.entity(),
@@ -64,7 +64,9 @@ struct LongRangeForecastsView: View {
                         VStack {
                             Text(introText).padding().multilineTextAlignment(.center)
                             Button("Start adding data") {
-                                isEditing.toggle()
+                                // switch tabs
+                                self.activeTab = 1
+//                                isEditing.toggle()
                             }
                             .padding()
                         }
@@ -76,32 +78,6 @@ struct LongRangeForecastsView: View {
                             }
                         }
                     }
-                    LongRangeBottomView(
-                        balance: Int(state.first?.actualBalance ?? 0),
-                        isEditing: $isEditing,
-                        currentModal: $currentModal
-                    ).background(Color(red: 0.99, green: 0.80, blue: 0.00))
-                    .cornerRadius(5)
-                    .sheet(item: $currentModal) {  item in
-                        switch item {
-                        case .about:
-                            AboutView()
-                        case .currentState:
-                            CurrentStateView().environment(\.managedObjectContext, managedObjectContext)
-                        }
-                    }
-                }
-                if !events.isEmpty {
-                    Button(action: {
-                        self.currentModal = .about
-                        self.isEditing.toggle()
-                    }) {
-                        Image(systemName: "questionmark.circle")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                    }
-                    .position(x: 40, y: 40)
-                    
                 }
             }
         }
@@ -129,13 +105,4 @@ extension HorizontalAlignment {
     }
     
     static let centerLine = HorizontalAlignment(CenterLine.self)
-}
-
-enum PresentedLongRangeModal: Int, Hashable, Identifiable {
-    case currentState = 0
-    case about = 1
-    
-    var id: Int {
-        self.hashValue
-    }
 }
