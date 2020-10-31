@@ -56,7 +56,6 @@ struct LongRangeForecastsView: View {
     }
     
     var body: some View {
-        // edit button in nav view , toggles to save when active
         GeometryReader { g in
             ZStack {
                 VStack(alignment: .center) {
@@ -64,9 +63,7 @@ struct LongRangeForecastsView: View {
                         VStack {
                             Text(introText).padding().multilineTextAlignment(.center)
                             Button("Start adding data") {
-                                // switch tabs
                                 self.activeTab = 1
-//                                isEditing.toggle()
                             }
                             .padding()
                         }
