@@ -36,7 +36,7 @@ struct CurrentStateView: View {
     }
     
     var expenses: [RBEvent] {
-        return events.filter { $0.type == 1}
+        events.filter { $0.type == 1}
     }
     
     var body: some View {
