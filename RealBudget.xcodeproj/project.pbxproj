@@ -28,6 +28,8 @@
 		BD53B8062533FE3100E58DBF /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD53B8052533FE3100E58DBF /* SnapshotHelper.swift */; };
 		BD9A15052549A32C00785712 /* MoneyEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A15042549A32C00785712 /* MoneyEntryView.swift */; };
 		BD9A1536254D902A00785712 /* RBTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A1535254D902A00785712 /* RBTabs.swift */; };
+		BD9A15642552555D00785712 /* Mapping0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = BD9A15632552555D00785712 /* Mapping0.xcmappingmodel */; };
+		BD9A15652552555D00785712 /* Mapping0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = BD9A15632552555D00785712 /* Mapping0.xcmappingmodel */; };
 		BDA42D2F253152E20070B910 /* LongRangeBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA42D2E253152E20070B910 /* LongRangeBottomView.swift */; };
 		BDA68203253B897200DC5201 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA68202253B897200DC5201 /* WidgetKit.framework */; };
 		BDA68205253B897200DC5201 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA68204253B897200DC5201 /* SwiftUI.framework */; };
@@ -115,6 +117,8 @@
 		BD53B8052533FE3100E58DBF /* SnapshotHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		BD9A15042549A32C00785712 /* MoneyEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyEntryView.swift; sourceTree = "<group>"; };
 		BD9A1535254D902A00785712 /* RBTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RBTabs.swift; sourceTree = "<group>"; };
+		BD9A155E255251E400785712 /* FinancialState 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "FinancialState 2.xcdatamodel"; sourceTree = "<group>"; };
+		BD9A15632552555D00785712 /* Mapping0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Mapping0.xcmappingmodel; sourceTree = "<group>"; };
 		BDA42D2E253152E20070B910 /* LongRangeBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongRangeBottomView.swift; sourceTree = "<group>"; };
 		BDA68201253B897200DC5201 /* Real Budget WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Real Budget WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA68202253B897200DC5201 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -288,6 +292,7 @@
 			children = (
 				BD3C92B623F9B6AB00B62B61 /* FinancialState.swift */,
 				BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */,
+				BD9A15632552555D00785712 /* Mapping0.xcmappingmodel */,
 				BD21B1AB25302593003E2AA2 /* Forecast.swift */,
 			);
 			path = Data;
@@ -512,6 +517,7 @@
 				BD21B1A225302167003E2AA2 /* PredictionEngine.swift in Sources */,
 				BD3C92BC23F9B75500B62B61 /* Frequency.swift in Sources */,
 				BDA42D2F253152E20070B910 /* LongRangeBottomView.swift in Sources */,
+				BD9A15642552555D00785712 /* Mapping0.xcmappingmodel in Sources */,
 				BDA6F1BF2403849C0080BA7D /* FinancialEventDetailView.swift in Sources */,
 				BD38349F241DD43F000E8C7C /* KeyboardNotifier.swift in Sources */,
 			);
@@ -548,6 +554,7 @@
 				BDA68224253B929C00DC5201 /* RBDateFormatter.swift in Sources */,
 				BDA6821F253B929300DC5201 /* PredictionEngine.swift in Sources */,
 				BDA68229253B92B100DC5201 /* Forecast.swift in Sources */,
+				BD9A15652552555D00785712 /* Mapping0.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -931,9 +938,10 @@
 		BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				BD9A155E255251E400785712 /* FinancialState 2.xcdatamodel */,
 				BD44D7CE252DFE9A0051FBD3 /* FinancialState.xcdatamodel */,
 			);
-			currentVersion = BD44D7CE252DFE9A0051FBD3 /* FinancialState.xcdatamodel */;
+			currentVersion = BD9A155E255251E400785712 /* FinancialState 2.xcdatamodel */;
 			path = FinancialState.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -38,7 +38,8 @@ struct LongRangeForecastsView: View {
                 value: Int($0.change),
                 frequency: Frequency(rawValue: Int($0.frequency)) ?? .monthly,
                 startDate: $0.startDate ?? Date(),
-                endDate: $0.endDate
+                endDate: $0.endDate,
+                active: $0.active
             )
         }
         let state = FinancialState(actualBalance: actualBalance, events: financialEvents)
