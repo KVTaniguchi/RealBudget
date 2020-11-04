@@ -9,11 +9,12 @@
 import SwiftUI
 
 struct CurrentStateView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var isEditing = false
     @State var balance: Int = 0
-    @State var showingEvent = false
+    @State var showingNew = false
+    @State var showingIncome = false
+    @State var showingExpense = false
     @State private var showingAbout = false
     
     private var existingBalance: Int? {
@@ -68,27 +69,27 @@ struct CurrentStateView: View {
                 }
                 Section {
                     Button("Add new") {
-                        self.showingEvent.toggle()
+                        self.showingNew.toggle()
                     }
-                    .sheet(isPresented: $showingEvent) {
+                    .sheet(isPresented: $showingNew) {
                         FinancialEventDetailView(event: nil).environment(\.managedObjectContext, managedObjectContext)
                     }
                     
                     Text("Expenses").padding(.top, 16)
                     ForEach(expenses) { expense in
                         Button("\(expense.name ?? "No name") $\(expense.change)") {
-                            self.showingEvent.toggle()
+                            self.showingExpense.toggle()
                         }
-                        .sheet(isPresented: $showingEvent) {
+                        .sheet(isPresented: $showingExpense) {
                             FinancialEventDetailView(event: expense).environment(\.managedObjectContext, managedObjectContext)
                         }
                     }
                     Text("Income").padding(.top, 16)
                     ForEach(income) { income in
                         Button("\(income.name ?? "No name") $\(income.change)") {
-                            self.showingEvent.toggle()
+                            self.showingIncome.toggle()
                         }
-                        .sheet(isPresented: $showingEvent) {
+                        .sheet(isPresented: $showingIncome) {
                             FinancialEventDetailView(event: income).environment(\.managedObjectContext, managedObjectContext)
                         }
                     }
