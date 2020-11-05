@@ -13,8 +13,6 @@ struct CurrentStateView: View {
     @State var isEditing = false
     @State var balance: Int = 0
     @State var showingNew = false
-    @State var showingIncome = false
-    @State var showingExpense = false
     @State private var showingAbout = false
     
     private var existingBalance: Int? {
@@ -77,21 +75,11 @@ struct CurrentStateView: View {
                     
                     Text("Expenses").padding(.top, 16)
                     ForEach(expenses) { expense in
-                        Button("\(expense.name ?? "No name") $\(expense.change)") {
-                            self.showingExpense.toggle()
-                        }
-                        .sheet(isPresented: $showingExpense) {
-                            FinancialEventDetailView(event: expense).environment(\.managedObjectContext, managedObjectContext)
-                        }
+                        EventButton(event: expense)
                     }
                     Text("Income").padding(.top, 16)
                     ForEach(income) { income in
-                        Button("\(income.name ?? "No name") $\(income.change)") {
-                            self.showingIncome.toggle()
-                        }
-                        .sheet(isPresented: $showingIncome) {
-                            FinancialEventDetailView(event: income).environment(\.managedObjectContext, managedObjectContext)
-                        }
+                        EventButton(event: income)
                     }
                 }
                 Section {
@@ -122,3 +110,18 @@ extension View {
     }
 }
 #endif
+
+struct EventButton: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    let event: RBEvent
+    @State var isPresenting: Bool = false
+    
+    var body: some View {
+        Button("\(event.name ?? "No name") $\(event.change)") {
+            self.isPresenting.toggle()
+        }
+        .sheet(isPresented: $isPresenting) {
+            FinancialEventDetailView(event: event).environment(\.managedObjectContext, managedObjectContext)
+        }
+    }
+}

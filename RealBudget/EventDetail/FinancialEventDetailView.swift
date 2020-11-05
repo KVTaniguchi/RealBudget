@@ -62,11 +62,12 @@ struct FinancialEventDetailView: View {
     }
     
     var body: some View {
-        Group {
+        VStack {
             HStack {
                 Button("Close") {
                     self.presentationMode.wrappedValue.dismiss()
-                }.padding(.leading, 20)
+                }
+                .padding(.leading, 20)
                 Spacer()
                 Button("Save") {
                     if let event = event {
@@ -76,7 +77,6 @@ struct FinancialEventDetailView: View {
                         event.setValue(Int16(scratchModel.type.rawValue), forKey: "type")
                         event.setValue(scratchModel.name, forKey: "name")
                     } else {
-                        // todo error handling
                         let newEvent = RBEvent(context: managedObjectContext)
                         newEvent.name = scratchModel.name
                         newEvent.change = Int16(scratchModel.value)
@@ -90,47 +90,40 @@ struct FinancialEventDetailView: View {
             }.padding(.bottom, 20)
             Text("Financial event")
             Form {
-                Group {
-                    Section {
-                        TextField("Name", text: $scratchModel.name, onEditingChanged: { didChange in
-                            self.shouldDisableSave = didChange
-                        })
-                        
-                        Picker("Type", selection: $scratchModel.type) {
-                            Text("Income").tag(FinancialEventType.income)
-                            Text("Expense").tag(FinancialEventType.expense)
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                        
-                        TextField("Amount ($)", text: amountProxy).keyboardType(.decimalPad)
-                        
-                        Picker("Frequency", selection: $scratchModel.frequency) {
-                            Text("Weekly").tag(Frequency.weekly)
-                            Text("Bi-weekly").tag(Frequency.biweekly)
-                            Text("Monthly").tag(Frequency.monthly)
-                            Text("Annually").tag(Frequency.annually)
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
+                Section {
+                    TextField("Name", text: $scratchModel.name, onEditingChanged: { didChange in
+                        self.shouldDisableSave = didChange
+                    })
+                    Picker("Type", selection: $scratchModel.type) {
+                        Text("Income").tag(FinancialEventType.income)
+                        Text("Expense").tag(FinancialEventType.expense)
                     }
-                    Section {
-                        DatePicker(
-                            selection: $startDate,
-                            in: Date()...,
-                            displayedComponents: .date
-                        ) {
-                            Text("Select a start date")
-                        }
-                        Text("Start date is \(startDate, formatter: RBDateFormatter.shared.formatter)")
+                    .pickerStyle(SegmentedPickerStyle())
+                    TextField("Amount ($)", text: amountProxy).keyboardType(.decimalPad)
+                    Picker("Frequency", selection: $scratchModel.frequency) {
+                        Text("Weekly").tag(Frequency.weekly)
+                        Text("Bi-weekly").tag(Frequency.biweekly)
+                        Text("Monthly").tag(Frequency.monthly)
+                        Text("Annually").tag(Frequency.annually)
                     }
-                    Group {
-                        if let event = event {
-                            Section {
-                                Button("Delete") {
-                                    managedObjectContext.delete(event)
-                                    save()
-                                }.accentColor(.red)
-                            }
-                        }
+                    .pickerStyle(SegmentedPickerStyle())
+                }
+                Section {
+                    DatePicker(
+                        selection: $startDate,
+                        in: Date()...,
+                        displayedComponents: .date
+                    ) {
+                        Text("Select a start date")
+                    }
+                    Text("Start date is \(startDate, formatter: RBDateFormatter.shared.formatter)")
+                }
+                if let event = event {
+                    Section {
+                        Button("Delete") {
+                            managedObjectContext.delete(event)
+                            save()
+                        }.accentColor(.red)
                     }
                 }
             }
