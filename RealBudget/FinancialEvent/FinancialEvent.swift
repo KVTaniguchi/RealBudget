@@ -16,6 +16,7 @@ struct FinancialEvent: Identifiable {
     var frequency: Frequency
     var startDate: Date
     var endDate: Date?
+    var isActive = true
     
     var displayValue: String {
         set { }
@@ -37,16 +38,4 @@ enum FinancialEventType: Int {
             return "Incomes"
         }
     }
-}
-
-extension FinancialEvent {
-    static let ckKey = "realBudgetEvent"
-    static let identifier = "identifier"
-    static let frequency = "frequency"
-    static let name = "name"
-    static let notes = "notes"
-    static let type = "type"
-    static let value = "value"
-    static let startDate = "start"
-    static let endDate = "end"
 }

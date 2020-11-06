@@ -24,7 +24,9 @@ final class PredictionEngine {
             }
         }
         
-        let eventsWithDates = state.events.map { populateChanges(hashedForecasts: hashedForecasts, event: $0, dates: dates) }
+        let activeEvents = state.events.filter(\.isActive)
+        
+        let eventsWithDates = activeEvents.map { populateChanges(hashedForecasts: hashedForecasts, event: $0, dates: dates) }
         
         var dynamicBalance = state.actualBalance
         applyChanges(

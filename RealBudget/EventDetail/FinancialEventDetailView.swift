@@ -43,7 +43,9 @@ struct FinancialEventDetailView: View {
                 value: Int(event.change),
                 frequency: frequency,
                 startDate: event.startDate ?? Date(),
-                endDate: event.endDate)
+                endDate: event.endDate,
+                isActive: event.isActive
+            )
             _scratchModel = State(initialValue: existingEvent)
             _startDate = State(initialValue: event.startDate ?? Date())
         } else {
@@ -76,6 +78,7 @@ struct FinancialEventDetailView: View {
                         event.setValue(Int16(scratchModel.frequency.rawValue), forKey: "frequency")
                         event.setValue(Int16(scratchModel.type.rawValue), forKey: "type")
                         event.setValue(scratchModel.name, forKey: "name")
+                        event.setValue(scratchModel.isActive, forKey: "isActive")
                     } else {
                         let newEvent = RBEvent(context: managedObjectContext)
                         newEvent.name = scratchModel.name
@@ -83,6 +86,7 @@ struct FinancialEventDetailView: View {
                         newEvent.startDate = startDate
                         newEvent.frequency = Int16(scratchModel.frequency.rawValue)
                         newEvent.type = Int16(scratchModel.type.rawValue)
+                        newEvent.isActive = true
                     }
                     
                     save()
@@ -117,6 +121,13 @@ struct FinancialEventDetailView: View {
                         Text("Select a start date")
                     }
                     Text("Start date is \(startDate, formatter: RBDateFormatter.shared.formatter)")
+                }
+                Section {
+                    Toggle(
+                        isOn: $scratchModel.isActive
+                    ) {
+                        Text("Active")
+                    }.padding()
                 }
                 if let event = event {
                     Section {
