@@ -46,6 +46,8 @@
 		BDA6F1BF2403849C0080BA7D /* FinancialEventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */; };
 		BDD27DC9240328E00072F7D4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD27DC8240328E00072F7D4 /* CloudKit.framework */; };
 		BDD27DCB2403291B0072F7D4 /* FinancialEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD27DCA2403291B0072F7D4 /* FinancialEvent.swift */; };
+		BDE4DC5225550B22009E2415 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BDE4DC5125550B22009E2415 /* .gitignore */; };
+		BDE4DC5325550B22009E2415 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BDE4DC5125550B22009E2415 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,7 @@
 		BDD27DC6240328D10072F7D4 /* RealBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RealBudget.entitlements; sourceTree = "<group>"; };
 		BDD27DC8240328E00072F7D4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BDD27DCA2403291B0072F7D4 /* FinancialEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialEvent.swift; sourceTree = "<group>"; };
+		BDE4DC5125550B22009E2415 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,7 @@
 		BD3C928223F9B64700B62B61 = {
 			isa = PBXGroup;
 			children = (
+				BDE4DC5025550ACF009E2415 /* Git */,
 				BDA6821A253B898300DC5201 /* Real Budget WidgetExtension.entitlements */,
 				BD3C928D23F9B64700B62B61 /* RealBudget */,
 				BD3C92A723F9B64800B62B61 /* RealBudgetTests */,
@@ -330,6 +334,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BDE4DC5025550ACF009E2415 /* Git */ = {
+			isa = PBXGroup;
+			children = (
+				BDE4DC5125550B22009E2415 /* .gitignore */,
+			);
+			path = Git;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -457,6 +469,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDE4DC5225550B22009E2415 /* .gitignore in Resources */,
 				BD3C929E23F9B64800B62B61 /* LaunchScreen.storyboard in Resources */,
 				BD3C929B23F9B64800B62B61 /* Preview Assets.xcassets in Resources */,
 				BD3C929823F9B64800B62B61 /* Assets.xcassets in Resources */,
@@ -481,6 +494,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDE4DC5325550B22009E2415 /* .gitignore in Resources */,
 				BDA6820B253B897300DC5201 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
