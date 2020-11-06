@@ -75,11 +75,11 @@ struct CurrentStateView: View {
                     
                     Text("Expenses").padding(.top, 16)
                     ForEach(expenses) { expense in
-                        EventButton(event: expense)
+                        EventButton(event: expense).environment(\.managedObjectContext, managedObjectContext)
                     }
                     Text("Income").padding(.top, 16)
                     ForEach(income) { income in
-                        EventButton(event: income)
+                        EventButton(event: income).environment(\.managedObjectContext, managedObjectContext)
                     }
                 }
                 Section {
@@ -116,8 +116,17 @@ struct EventButton: View {
     let event: RBEvent
     @State var isPresenting: Bool = false
     
+    @FetchRequest(
+        entity: RBEvent.entity(),
+        sortDescriptors: []
+    ) var events: FetchedResults<RBEvent>
+    
+    var displayableEvent: RBEvent {
+        events.first(where: { event.id == $0.id }) ?? event
+    }
+    
     var body: some View {
-        Button("\(event.name ?? "No name") $\(event.change)") {
+        Button("\(displayableEvent.name ?? "No name") $\(displayableEvent.change)") {
             self.isPresenting.toggle()
         }
         .sheet(isPresented: $isPresenting) {
