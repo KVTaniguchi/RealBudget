@@ -130,6 +130,7 @@
 		BDD27DC8240328E00072F7D4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BDD27DCA2403291B0072F7D4 /* FinancialEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialEvent.swift; sourceTree = "<group>"; };
 		BDE4DC5125550B22009E2415 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		BDE4DC7525564B21009E2415 /* FinancialState_2_Active.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinancialState_2_Active.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -941,9 +942,10 @@
 		BD44D7CD252DFE9A0051FBD3 /* FinancialState.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				BDE4DC7525564B21009E2415 /* FinancialState_2_Active.xcdatamodel */,
 				BD44D7CE252DFE9A0051FBD3 /* FinancialState.xcdatamodel */,
 			);
-			currentVersion = BD44D7CE252DFE9A0051FBD3 /* FinancialState.xcdatamodel */;
+			currentVersion = BDE4DC7525564B21009E2415 /* FinancialState_2_Active.xcdatamodel */;
 			path = FinancialState.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

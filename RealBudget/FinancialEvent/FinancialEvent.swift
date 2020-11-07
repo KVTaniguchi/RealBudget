@@ -16,6 +16,7 @@ struct FinancialEvent: Identifiable {
     var frequency: Frequency
     var startDate: Date
     var endDate: Date?
+    var isActive = true
     
     var displayValue: String {
         set { }
