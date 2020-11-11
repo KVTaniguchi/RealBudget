@@ -25,7 +25,7 @@ struct FinancialEventDetailView: View {
     @State private var startDate: Date
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    static let formatter: NumberFormatter = {
+    private static let formatter: NumberFormatter = {
        NumberFormatter()
     }()
     
@@ -157,7 +157,7 @@ struct FinancialEventDetailView: View {
         return "\(value)"
     }
     
-    var amountProxy: Binding<String> {
+    private var amountProxy: Binding<String> {
         Binding<String>(
             get: { self.string(from: self.scratchModel.value) },
             set: {
