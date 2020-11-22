@@ -102,35 +102,3 @@ struct CurrentStateView: View {
         }
     }
 }
-
-#if canImport(UIKit)
-extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-#endif
-
-struct EventButton: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
-    let event: RBEvent
-    @State var isPresenting: Bool = false
-    
-    @FetchRequest(
-        entity: RBEvent.entity(),
-        sortDescriptors: []
-    ) var events: FetchedResults<RBEvent>
-    
-    var displayableEvent: RBEvent {
-        events.first(where: { event.id == $0.id }) ?? event
-    }
-    
-    var body: some View {
-        Button("\(displayableEvent.name ?? "No name") $\(displayableEvent.change)") {
-            self.isPresenting.toggle()
-        }
-        .sheet(isPresented: $isPresenting) {
-            FinancialEventDetailView(event: event).environment(\.managedObjectContext, managedObjectContext)
-        }
-    }
-}

@@ -8,14 +8,6 @@
 
 import SwiftUI
 
-extension NumberFormatter {
-    static var currency: NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        return formatter
-    }
-}
-
 struct FinancialEventDetailView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @State private var isSaving = false

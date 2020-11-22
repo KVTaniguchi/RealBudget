@@ -94,13 +94,3 @@ struct LongRangeForecastsView: View {
         """
     }
 }
-
-extension HorizontalAlignment {
-    struct CenterLine: AlignmentID {
-        static func defaultValue(in context: ViewDimensions) -> CGFloat {
-            context[HorizontalAlignment.center]
-        }
-    }
-    
-    static let centerLine = HorizontalAlignment(CenterLine.self)
-}

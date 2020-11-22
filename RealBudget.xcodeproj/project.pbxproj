@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD19B32E253557C900F50C38 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD19B32D253557C900F50C38 /* AboutView.swift */; };
+		BD1B1CBE256AB360001748D1 /* EventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1CBD256AB360001748D1 /* EventButton.swift */; };
 		BD21B1A225302167003E2AA2 /* PredictionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1A125302167003E2AA2 /* PredictionEngine.swift */; };
 		BD21B1AC25302593003E2AA2 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1AB25302593003E2AA2 /* Forecast.swift */; };
 		BD21B1B5253027C1003E2AA2 /* CurrentStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD21B1B4253027C1003E2AA2 /* CurrentStateView.swift */; };
@@ -46,6 +47,9 @@
 		BDA6F1BF2403849C0080BA7D /* FinancialEventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6F1BE2403849C0080BA7D /* FinancialEventDetailView.swift */; };
 		BDD27DC9240328E00072F7D4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD27DC8240328E00072F7D4 /* CloudKit.framework */; };
 		BDD27DCB2403291B0072F7D4 /* FinancialEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD27DCA2403291B0072F7D4 /* FinancialEvent.swift */; };
+		BDDE5F0A256AB59D00E562C7 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDE5F09256AB59D00E562C7 /* ViewExtensions.swift */; };
+		BDDE5F14256AB6B200E562C7 /* HorizontalAlignmentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDE5F13256AB6B200E562C7 /* HorizontalAlignmentExtensions.swift */; };
+		BDDE5F1A256AB74400E562C7 /* CenterLineEyeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDE5F19256AB74400E562C7 /* CenterLineEyeView.swift */; };
 		BDE4DC5225550B22009E2415 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BDE4DC5125550B22009E2415 /* .gitignore */; };
 		BDE4DC5325550B22009E2415 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BDE4DC5125550B22009E2415 /* .gitignore */; };
 /* End PBXBuildFile section */
@@ -90,6 +94,7 @@
 
 /* Begin PBXFileReference section */
 		BD19B32D253557C900F50C38 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		BD1B1CBD256AB360001748D1 /* EventButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventButton.swift; sourceTree = "<group>"; };
 		BD21B1A125302167003E2AA2 /* PredictionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionEngine.swift; sourceTree = "<group>"; };
 		BD21B1AB25302593003E2AA2 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		BD21B1B4253027C1003E2AA2 /* CurrentStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentStateView.swift; sourceTree = "<group>"; };
@@ -129,6 +134,9 @@
 		BDD27DC6240328D10072F7D4 /* RealBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RealBudget.entitlements; sourceTree = "<group>"; };
 		BDD27DC8240328E00072F7D4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BDD27DCA2403291B0072F7D4 /* FinancialEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialEvent.swift; sourceTree = "<group>"; };
+		BDDE5F09256AB59D00E562C7 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		BDDE5F13256AB6B200E562C7 /* HorizontalAlignmentExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalAlignmentExtensions.swift; sourceTree = "<group>"; };
+		BDDE5F19256AB74400E562C7 /* CenterLineEyeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLineEyeView.swift; sourceTree = "<group>"; };
 		BDE4DC5125550B22009E2415 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BDE4DC7525564B21009E2415 /* FinancialState_2_Active.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinancialState_2_Active.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +189,8 @@
 			children = (
 				BD21B1B4253027C1003E2AA2 /* CurrentStateView.swift */,
 				BD9A15042549A32C00785712 /* MoneyEntryView.swift */,
+				BD19B32D253557C900F50C38 /* AboutView.swift */,
+				BD1B1CBD256AB360001748D1 /* EventButton.swift */,
 			);
 			path = CurrentState;
 			sourceTree = "<group>";
@@ -213,6 +223,7 @@
 		BD3C928D23F9B64700B62B61 /* RealBudget */ = {
 			isa = PBXGroup;
 			children = (
+				BDDE5F08256AB58300E562C7 /* Extensions */,
 				BD21B1B3253027A9003E2AA2 /* CurrentState */,
 				BD21B1A025302158003E2AA2 /* Prediction */,
 				BD44D7CC252DFE600051FBD3 /* Data */,
@@ -226,7 +237,6 @@
 				BD3C929C23F9B64800B62B61 /* LaunchScreen.storyboard */,
 				BD3C929F23F9B64800B62B61 /* Info.plist */,
 				BD3C929923F9B64800B62B61 /* Preview Content */,
-				BD19B32D253557C900F50C38 /* AboutView.swift */,
 			);
 			path = RealBudget;
 			sourceTree = "<group>";
@@ -272,6 +282,7 @@
 			children = (
 				BD3C92C623FABBD600B62B61 /* LongRangeForecastsView.swift */,
 				BD44D7B9252C0D350051FBD3 /* ForecastView.swift */,
+				BDDE5F19256AB74400E562C7 /* CenterLineEyeView.swift */,
 			);
 			path = LongRangeForecasts;
 			sourceTree = "<group>";
@@ -333,6 +344,15 @@
 				BDA68204253B897200DC5201 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDDE5F08256AB58300E562C7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BDDE5F09256AB59D00E562C7 /* ViewExtensions.swift */,
+				BDDE5F13256AB6B200E562C7 /* HorizontalAlignmentExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		BDE4DC5025550ACF009E2415 /* Git */ = {
@@ -510,8 +530,11 @@
 				BDA6820E253B897300DC5201 /* Real_Budget_Widget.intentdefinition in Sources */,
 				BD9A1536254D902A00785712 /* RBTabs.swift in Sources */,
 				BD3C928F23F9B64700B62B61 /* AppMain.swift in Sources */,
+				BDDE5F1A256AB74400E562C7 /* CenterLineEyeView.swift in Sources */,
+				BDDE5F14256AB6B200E562C7 /* HorizontalAlignmentExtensions.swift in Sources */,
 				BD44D7C5252CA04C0051FBD3 /* RBMoneyFormatters.swift in Sources */,
 				BD19B32E253557C900F50C38 /* AboutView.swift in Sources */,
+				BD1B1CBE256AB360001748D1 /* EventButton.swift in Sources */,
 				BD9A15052549A32C00785712 /* MoneyEntryView.swift in Sources */,
 				BD21B1AC25302593003E2AA2 /* Forecast.swift in Sources */,
 				BD3C92C723FABBD600B62B61 /* LongRangeForecastsView.swift in Sources */,
@@ -524,6 +547,7 @@
 				BD21B1A225302167003E2AA2 /* PredictionEngine.swift in Sources */,
 				BD3C92BC23F9B75500B62B61 /* Frequency.swift in Sources */,
 				BDA6F1BF2403849C0080BA7D /* FinancialEventDetailView.swift in Sources */,
+				BDDE5F0A256AB59D00E562C7 /* ViewExtensions.swift in Sources */,
 				BD38349F241DD43F000E8C7C /* KeyboardNotifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

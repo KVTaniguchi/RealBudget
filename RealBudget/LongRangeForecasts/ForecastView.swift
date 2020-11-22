@@ -23,15 +23,3 @@ struct ForecastView: View {
         }
     }
 }
-
-struct CenterLineEyeView: View {
-    let isCurrentWeek: Bool
-    
-    var body: some View {
-        VStack {
-            Rectangle().frame(width: 1.0, height: 40, alignment: .center)
-            Image(systemName: isCurrentWeek ? "largecircle.fill.circle" : "smallcircle.fill.circle")
-            Rectangle().frame(width: 1.0, height: 40, alignment: .center)
-        }
-    }
-}
