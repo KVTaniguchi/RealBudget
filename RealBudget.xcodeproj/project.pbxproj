@@ -223,6 +223,7 @@
 		BD3C928D23F9B64700B62B61 /* RealBudget */ = {
 			isa = PBXGroup;
 			children = (
+				BDDE5F1F256ABAD200E562C7 /* ViewModifiers */,
 				BDDE5F08256AB58300E562C7 /* Extensions */,
 				BD21B1B3253027A9003E2AA2 /* CurrentState */,
 				BD21B1A025302158003E2AA2 /* Prediction */,
@@ -262,7 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				BD3C928E23F9B64700B62B61 /* AppMain.swift */,
-				BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */,
 				BD9A1535254D902A00785712 /* RBTabs.swift */,
 			);
 			path = AppLevel;
@@ -353,6 +353,14 @@
 				BDDE5F13256AB6B200E562C7 /* HorizontalAlignmentExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BDDE5F1F256ABAD200E562C7 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				BD38349E241DD43F000E8C7C /* KeyboardNotifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		BDE4DC5025550ACF009E2415 /* Git */ = {
