@@ -37,7 +37,7 @@ struct MoneyEntryView: View {
                 self.isEditing = isEditing
             })
             .multilineTextAlignment(.trailing).keyboardType(.numberPad)
-            .padding(.trailing, 60)
+            .padding()
         }
     }
 

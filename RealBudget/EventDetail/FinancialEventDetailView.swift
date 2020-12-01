@@ -61,7 +61,7 @@ struct FinancialEventDetailView: View {
                 Button("Close") {
                     self.presentationMode.wrappedValue.dismiss()
                 }
-                .padding(.leading, 20)
+                .padding()
                 Spacer()
                 Button("Save") {
                     if let event = event {
@@ -82,8 +82,8 @@ struct FinancialEventDetailView: View {
                     }
                     
                     save()
-                }.padding(.trailing, 20)
-            }.padding(.bottom, 20)
+                }.padding()
+            }.padding()
             Text("Financial event")
             Form {
                 Section {
@@ -131,7 +131,7 @@ struct FinancialEventDetailView: View {
                 }
             }
             .modifier(KeyboardHeightModifier())
-        }.padding(.top, 40)
+        }.padding()
     }
     
     private func save() {

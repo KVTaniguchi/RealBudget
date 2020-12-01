@@ -30,11 +30,11 @@ struct CurrentStateView: View {
         sortDescriptors: []
     ) var events: FetchedResults<RBEvent>
     
-    var income: [RBEvent] {
+    private var income: [RBEvent] {
         events.filter { $0.type == 0 }
     }
     
-    var expenses: [RBEvent] {
+    private var expenses: [RBEvent] {
         events.filter { $0.type == 1}
     }
     
@@ -73,11 +73,11 @@ struct CurrentStateView: View {
                         FinancialEventDetailView(event: nil).environment(\.managedObjectContext, managedObjectContext)
                     }
                     
-                    Text("Expenses").padding(.top, 16)
+                    Text("Expenses").padding()
                     ForEach(expenses) { expense in
                         EventButton(event: expense).environment(\.managedObjectContext, managedObjectContext)
                     }
-                    Text("Income").padding(.top, 16)
+                    Text("Income").padding()
                     ForEach(income) { income in
                         EventButton(event: income).environment(\.managedObjectContext, managedObjectContext)
                     }
@@ -94,7 +94,7 @@ struct CurrentStateView: View {
         }.background(Color(red: 0.99, green: 0.80, blue: 0.00))
     }
     
-    func save() {
+    private func save() {
         if managedObjectContext.hasChanges {
             do {
                 _ = try managedObjectContext.save()

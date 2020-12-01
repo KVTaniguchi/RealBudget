@@ -25,7 +25,7 @@ struct LongRangeForecastsView: View {
     
     @State private var localState: FinancialState?
     
-    var data: [Forecast] {
+    private var data: [Forecast] {
         guard let state = state.first else { return [] }
         return FinancialResource.forecast(state: state, events: events)
     }
@@ -55,7 +55,7 @@ struct LongRangeForecastsView: View {
         }
     }
     
-    var introText: String {
+    private var introText: String {
         """
         Just starting?
         Predict your budget by adding

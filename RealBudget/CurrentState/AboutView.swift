@@ -19,7 +19,7 @@ struct AboutView: View {
         }
     }
     
-    var about: String {
+    private var about: String {
         """
         This app is for educational and entertainment purposes only.
 
