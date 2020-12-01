@@ -10,9 +10,9 @@ import SwiftUI
 
 struct CurrentStateView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    @State var isEditing = false
-    @State var balance: Int = 0
-    @State var showingNew = false
+    @State private var isEditing = false
+    @State private var balance: Int = 0
+    @State private var showingNew = false
     @State private var showingAbout = false
     
     private var existingBalance: Int? {
@@ -47,7 +47,7 @@ struct CurrentStateView: View {
                     MoneyEntryView(
                         amount: $balance,
                         isEditing: $isEditing,
-                        existingBalance: existingBalance
+                        existingBalance: existingBalance ?? 0
                     )
                     if isEditing {
                         Button("Done") {

@@ -11,7 +11,7 @@ import SwiftUI
 import Combine
  
 struct KeyboardHeightModifier: ViewModifier {
-  @State var currentHeight: CGFloat = 0
+  @State private var currentHeight: CGFloat = 0
  
   func body(content: Content) -> some View {
     content

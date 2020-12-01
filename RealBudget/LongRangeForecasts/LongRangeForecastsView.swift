@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct LongRangeForecastsView: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
-    @State var isShowingInfo = false
+    @State private var isShowingInfo = false
     
     @Binding var activeTab: Int
     
@@ -24,36 +23,11 @@ struct LongRangeForecastsView: View {
         sortDescriptors: []
     ) var events: FetchedResults<RBEvent>
     
-    @State var localState: FinancialState?
+    @State private var localState: FinancialState?
     
     var data: [Forecast] {
-        var data: [Forecast] = []
-        
-        let actualBalance = Int(state.first?.actualBalance ?? 0)
-        let financialEvents = events.map {
-            FinancialEvent(
-                id: $0.id,
-                type: FinancialEventType(rawValue: Int($0.type)) ?? .expense,
-                name: $0.name ?? "no name",
-                value: Int($0.change),
-                frequency: Frequency(rawValue: Int($0.frequency)) ?? .monthly,
-                startDate: $0.startDate ?? Date(),
-                endDate: $0.endDate,
-                isActive: $0.isActive
-            )
-        }
-        let state = FinancialState(actualBalance: actualBalance, events: financialEvents)
-        let predictions = PredictionEngine.shared.predict(state: state)
-        
-        let sortedDates = predictions.keys.sorted()
-        
-        for date in sortedDates {
-            if let forecast = predictions[date] {
-                data.append(forecast)
-            }
-        }
-        
-        return data
+        guard let state = state.first else { return [] }
+        return FinancialResource.forecast(state: state, events: events)
     }
     
     var body: some View {

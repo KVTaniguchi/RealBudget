@@ -22,7 +22,6 @@ struct RBTabView: View {
     var body: some View {
         TabView(selection: $activeTab) {
             LongRangeForecastsView(activeTab: $activeTab)
-                .environment(\.managedObjectContext, managedObjectContext)
             .tabItem {
                 Image(systemName: "magnifyingglass")
                 Text("Forecast")

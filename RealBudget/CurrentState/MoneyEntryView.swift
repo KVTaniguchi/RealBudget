@@ -12,13 +12,19 @@ import SwiftUI
 struct MoneyEntryView: View {
     @Binding var amount: Int
     @Binding var isEditing: Bool
-    @State var existingBalance: Int?
+    @State private var existingBalance: Int
+    
+    init(amount: Binding<Int>, isEditing: Binding<Bool>, existingBalance: Int) {
+        _amount = amount
+        _isEditing = isEditing
+        _existingBalance = State(initialValue: existingBalance)
+    }
 
     var amountProxy: Binding<String> {
         Binding<String>(
-            get: { self.string(from: existingBalance ?? self.amount) },
+            get: { self.string(from: existingBalance) },
             set: {
-                self.existingBalance = Int($0)
+                self.existingBalance = Int($0) ?? 0
                 self.amount = Int($0) ?? 0
             }
         )

@@ -12,7 +12,7 @@ import SwiftUI
 struct EventButton: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     let event: RBEvent
-    @State var isPresenting: Bool = false
+    @State private var isPresenting: Bool = false
     
     @FetchRequest(
         entity: RBEvent.entity(),
