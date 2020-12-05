@@ -14,6 +14,8 @@ import WidgetKit
 struct ReadBudget: App {
     var container: NSPersistentContainer
     @Environment(\.scenePhase) var scenePhase
+    @State private var showingAlert = false
+    @State private var error: Error?
     
     init() {
         let persistContainer = NSPersistentContainer(name: "FinancialState")
@@ -33,9 +35,21 @@ struct ReadBudget: App {
     
     var body: some Scene {
         WindowGroup {
-            RBTabView().environment(\.managedObjectContext, container.viewContext)
+            RBTabView()
+                .environment(\.managedObjectContext, container.viewContext)
+                .alert(
+                    isPresented: $showingAlert
+                ) {
+                    Alert(
+                        title: Text("Oops!"),
+                        message: Text("\(self.error?.localizedDescription ?? "We had an error saving.")"),
+                        dismissButton: .default(Text("Ok"))
+                    )
+                }
         }
-        .onChange(of: scenePhase) { phase in
+        .onChange(
+            of: scenePhase
+        ) { phase in
             if phase == .background {
                 saveContext()
             }
@@ -50,7 +64,8 @@ struct ReadBudget: App {
                 
                 WidgetCenter.shared.reloadAllTimelines()
             } catch {
-                // Show the error here
+                showingAlert.toggle()
+                self.error = error
             }
         }
     }
