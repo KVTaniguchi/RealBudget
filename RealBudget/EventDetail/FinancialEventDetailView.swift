@@ -15,6 +15,8 @@ struct FinancialEventDetailView: View {
     @State private var scratchModel: FinancialEvent
     @State private var valueText: String = ""
     @State private var startDate: Date
+    @State private var showingAlert = false
+    @State private var error: Error?
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     private static let formatter: NumberFormatter = {
@@ -131,7 +133,17 @@ struct FinancialEventDetailView: View {
                 }
             }
             .modifier(KeyboardHeightModifier())
-        }.padding()
+        }
+        .padding()
+        .alert(
+            isPresented: $showingAlert
+        ) {
+            Alert(
+                title: Text("Oops!"),
+                message: Text("\(self.error?.localizedDescription ?? "We had an error saving.")"),
+                dismissButton: .default(Text("Ok"))
+            )
+        }
     }
     
     private func save() {
@@ -139,7 +151,10 @@ struct FinancialEventDetailView: View {
             do {
                 try managedObjectContext.save()
                 self.presentationMode.wrappedValue.dismiss()
-            } catch {}
+            } catch {
+                self.error = error
+                showingAlert.toggle()
+            }
         }
     }
     

@@ -64,8 +64,8 @@ struct ReadBudget: App {
                 
                 WidgetCenter.shared.reloadAllTimelines()
             } catch {
-                showingAlert.toggle()
                 self.error = error
+                showingAlert.toggle()
             }
         }
     }

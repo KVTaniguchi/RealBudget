@@ -14,6 +14,8 @@ struct CurrentStateView: View {
     @State private var balance: Int = 0
     @State private var showingNew = false
     @State private var showingAbout = false
+    @State private var showingAlert = false
+    @State private var error: Error?
     
     private var existingBalance: Int? {
         guard let existingBalance = state.first?.actualBalance else { return nil }
@@ -91,14 +93,27 @@ struct CurrentStateView: View {
                     AboutView()
                 }
             }
-        }.background(Color(red: 0.99, green: 0.80, blue: 0.00))
+        }
+        .background(Color(red: 0.99, green: 0.80, blue: 0.00))
+        .alert(
+            isPresented: $showingAlert
+        ) {
+            Alert(
+                title: Text("Oops!"),
+                message: Text("\(self.error?.localizedDescription ?? "We had an error saving.")"),
+                dismissButton: .default(Text("Ok"))
+            )
+        }
     }
     
     private func save() {
         if managedObjectContext.hasChanges {
             do {
                 _ = try managedObjectContext.save()
-            } catch {}
+            } catch {
+                self.error = error
+                showingAlert.toggle()
+            }
         }
     }
 }
