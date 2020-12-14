@@ -132,7 +132,6 @@ struct FinancialEventDetailView: View {
                     }
                 }
             }
-            .modifier(KeyboardHeightModifier())
         }
         .padding()
         .alert(
