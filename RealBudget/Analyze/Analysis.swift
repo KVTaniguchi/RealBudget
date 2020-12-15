@@ -35,6 +35,7 @@ enum RiskLevel {
     case high
     case moderate
     case low
+    case unknown
 }
 
 struct Risk {
@@ -51,6 +52,10 @@ struct Risk {
                let lastBalance = forecasts.last?.balance {
                 
                 delta = lastBalance - firstBalance
+            }
+            
+            if delta <= 0 {
+                level = .high
             }
         }
     }
