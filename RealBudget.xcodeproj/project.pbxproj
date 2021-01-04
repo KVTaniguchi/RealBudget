@@ -53,7 +53,6 @@
 		BDDE5F1A256AB74400E562C7 /* CenterLineEyeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDE5F19256AB74400E562C7 /* CenterLineEyeView.swift */; };
 		BDE4DC5225550B22009E2415 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BDE4DC5125550B22009E2415 /* .gitignore */; };
 		BDE4DC5325550B22009E2415 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = BDE4DC5125550B22009E2415 /* .gitignore */; };
-		BDF8868825A3CD0A0095ED4C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BDF8868725A3CD0A0095ED4C /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -514,7 +513,6 @@
 			files = (
 				BDE4DC5225550B22009E2415 /* .gitignore in Resources */,
 				BD3C929E23F9B64800B62B61 /* LaunchScreen.storyboard in Resources */,
-				BDF8868825A3CD0A0095ED4C /* README.md in Resources */,
 				BD3C929B23F9B64800B62B61 /* Preview Assets.xcassets in Resources */,
 				BD3C929823F9B64800B62B61 /* Assets.xcassets in Resources */,
 			);
