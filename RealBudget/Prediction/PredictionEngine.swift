@@ -48,13 +48,21 @@ final class PredictionEngine {
         let sortedForecastDates = dates.sorted()
 
         let applicationDates = (0 ..< event.frequency.recurrences).map {
-            Calendar.current.date(byAdding: event.frequency.calendarComponent, value: $0 * event.frequency.interval, to: event.startDate)!
+            Calendar.current.date(
+                byAdding: event.frequency.calendarComponent,
+                value: $0 * event.frequency.interval,
+                to: event.startDate
+            )!
         }
         
         for forecastDate in sortedForecastDates {
             var currentForecast = hashedForecasts[forecastDate]
             
-            let oneWeekAgo = Calendar.current.date(byAdding: .day, value: -7, to: forecastDate)!
+            let oneWeekAgo = Calendar.current.date(
+                byAdding: .day,
+                value: -7,
+                to: forecastDate
+            )!
             
             let shouldApplyEventToForecastDate: Bool = {
                 let dateFallingInBetween = applicationDates.first { (applicationDate) -> Bool in

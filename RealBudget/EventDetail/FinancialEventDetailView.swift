@@ -19,10 +19,6 @@ struct FinancialEventDetailView: View {
     @State private var error: Error?
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    private static let formatter: NumberFormatter = {
-       NumberFormatter()
-    }()
-    
     private var event: RBEvent?
     
     init(event: RBEvent?) {
@@ -167,7 +163,7 @@ struct FinancialEventDetailView: View {
         Binding<String>(
             get: { self.string(from: self.scratchModel.value) },
             set: {
-                if let value = FinancialEventDetailView.formatter.number(from: $0) {
+                if let value = RBMoneyFormatter.shared.formatter.number(from: $0) {
                     self.scratchModel.value = value.intValue
                 }
             }

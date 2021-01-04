@@ -24,11 +24,17 @@ struct EventButton: View {
     }
     
     var body: some View {
-        Button("\(displayableEvent.name ?? "No name") $\(displayableEvent.change)") {
+        Button(
+            "\(displayableEvent.name ?? "No name") $\(displayableEvent.change)"
+        ) {
             self.isPresenting.toggle()
         }
         .sheet(isPresented: $isPresenting) {
-            FinancialEventDetailView(event: event).environment(\.managedObjectContext, managedObjectContext)
+            FinancialEventDetailView(
+                event: event
+            ).environment(
+                \.managedObjectContext, managedObjectContext
+            )
         }
     }
 }
