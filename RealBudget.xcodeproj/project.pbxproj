@@ -141,7 +141,6 @@
 		BDDE5F19256AB74400E562C7 /* CenterLineEyeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterLineEyeView.swift; sourceTree = "<group>"; };
 		BDE4DC5125550B22009E2415 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		BDE4DC7525564B21009E2415 /* FinancialState_2_Active.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinancialState_2_Active.xcdatamodel; sourceTree = "<group>"; };
-		BDF8868725A3CD0A0095ED4C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,7 +241,6 @@
 				BD3C929C23F9B64800B62B61 /* LaunchScreen.storyboard */,
 				BD3C929F23F9B64800B62B61 /* Info.plist */,
 				BD3C929923F9B64800B62B61 /* Preview Content */,
-				BDF8868725A3CD0A0095ED4C /* README.md */,
 			);
 			path = RealBudget;
 			sourceTree = "<group>";
