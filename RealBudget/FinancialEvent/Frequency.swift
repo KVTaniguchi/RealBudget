@@ -43,13 +43,13 @@ enum Frequency: Int {
     var recurrences: Int {
         switch self {
         case .weekly:
-            return 53
+            return 52
         case .biweekly:
-            return 27
+            return 26
         case .monthly:
             return 12
         case .annually:
-            return 2
+            return 1
         }
     }
     
